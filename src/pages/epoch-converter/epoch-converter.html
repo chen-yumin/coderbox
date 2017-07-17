@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Epoch Converter</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Unix Epoch Time
+    </ion-card-header>
+    <ion-card-content>
+      {{ epochTime }}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Human Readable Time
+    </ion-card-header>
+    <ion-card-content>
+      {{ humanReadableTime }}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
