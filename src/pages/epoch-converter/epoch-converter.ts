@@ -7,15 +7,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class EpochConverterPage {
   epochTime: number;
-  humanReadableTime: string;
+  isoTimeString: string;
 
   constructor(public navCtrl: NavController) {
     this.epochTime = Math.round(new Date().getTime()/1000.0);
-    this.onChangeEpoch();
+    this.updateTime();
   }
 
-  onChangeEpoch() : void {
-    this.humanReadableTime = new Date(this.epochTime * 1000).toString();
+  updateTime() : void {
+    const date = new Date(this.epochTime * 1000);
+    this.isoTimeString = date.toISOString();
+  }
+
+  onChangeIsoTime() : void {
+    this.epochTime = Math.round(new Date(this.isoTimeString).getTime()/1000.0);
+    this.updateTime();
   }
 
 }

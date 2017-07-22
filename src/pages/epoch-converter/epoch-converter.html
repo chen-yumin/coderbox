@@ -16,9 +16,11 @@
         Unix Epoch Time
       </ion-card-header>
       <ion-card-content>
-        <ion-input type="number" [(ngModel)]="epochTime"
-          (change)='onChangeEpoch()'>
-        </ion-input>
+        <ion-item>
+          <ion-input type="number" [(ngModel)]="epochTime"
+            (input)='updateTime()'>
+          </ion-input>
+        </ion-item>
       </ion-card-content>
     </ion-card>
 
@@ -27,7 +29,17 @@
         Human Readable Time
       </ion-card-header>
       <ion-card-content>
-        {{ humanReadableTime }}
+        <ion-item>
+          <ion-datetime displayFormat="DDDD MMMM D, YYYY"
+            pickerFormat="MMMM D, YYYY" [(ngModel)]="isoTimeString"
+            (ionChange)='onChangeIsoTime()'>
+          </ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-datetime displayFormat="HH:mm:ss" displayFormat="HH:mm:ss"
+            [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
+          </ion-datetime>
+        </ion-item>
       </ion-card-content>
     </ion-card>
 
