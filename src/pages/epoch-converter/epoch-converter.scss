@@ -1,3 +1,47 @@
 epoch-converter {
 
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "banner banner"
+      "epoch epoch"
+      "human human";
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 240px;
+      background-image: url('../assets/bg.png');
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    .card {
+      margin: 10px;
+    }
+
+    #banner {
+      height: 200px;
+      grid-area: banner;
+    }
+
+    #epoch-time-card {
+      grid-area: epoch;
+    }
+
+    #human-time-card {
+      grid-area: human;
+    }
+
+    @media (min-width: breakpoint-min(lg)) {
+      grid-template-areas:
+        "banner banner"
+        "epoch human";
+    }
+  }
 }

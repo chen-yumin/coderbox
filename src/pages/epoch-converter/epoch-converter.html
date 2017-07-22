@@ -8,21 +8,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      Unix Epoch Time
-    </ion-card-header>
-    <ion-card-content>
-      {{ epochTime }}
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      Human Readable Time
-    </ion-card-header>
-    <ion-card-content>
-      {{ humanReadableTime }}
-    </ion-card-content>
-  </ion-card>
+  <main>
+    <div id="banner"></div>
 
+    <ion-card id="epoch-time-card">
+      <ion-card-header>
+        Unix Epoch Time
+      </ion-card-header>
+      <ion-card-content>
+        {{ epochTime }}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="human-time-card">
+      <ion-card-header>
+        Human Readable Time
+      </ion-card-header>
+      <ion-card-content>
+        {{ humanReadableTime }}
+      </ion-card-content>
+    </ion-card>
+
+  </main>
 </ion-content>
