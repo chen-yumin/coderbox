@@ -16,7 +16,9 @@
         Unix Epoch Time
       </ion-card-header>
       <ion-card-content>
-        {{ epochTime }}
+        <ion-input type="number" [(ngModel)]="epochTime"
+          (change)='onChangeEpoch()'>
+        </ion-input>
       </ion-card-content>
     </ion-card>
 

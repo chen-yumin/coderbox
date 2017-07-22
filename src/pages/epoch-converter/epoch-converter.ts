@@ -11,6 +11,10 @@ export class EpochConverterPage {
 
   constructor(public navCtrl: NavController) {
     this.epochTime = Math.round(new Date().getTime()/1000.0);
+    this.onChangeEpoch();
+  }
+
+  onChangeEpoch() : void {
     this.humanReadableTime = new Date(this.epochTime * 1000).toString();
   }
 
