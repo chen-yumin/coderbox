@@ -31,7 +31,8 @@
       <ion-card-content>
         <ion-item>
           <ion-datetime displayFormat="DDDD MMMM D, YYYY"
-            pickerFormat="MMMM D, YYYY" [(ngModel)]="isoTimeString"
+            pickerFormat="MMMM D, YYYY" min="1900" max="2100"
+            [(ngModel)]="isoTimeString"
             (ionChange)='onChangeIsoTime()'>
           </ion-datetime>
         </ion-item>
