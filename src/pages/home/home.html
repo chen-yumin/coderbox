@@ -9,12 +9,16 @@
 
 <ion-content padding>
 
+  <h3>What is this?</h3>
+
   <ion-card>
     <ion-card-header>
-      What is this?
+      CoderBox.io
     </ion-card-header>
     <ion-card-content>
-      CoderBox is an app designed by developers for developers. It contains all the common tools needed for development.
+      <p>
+        CoderBox.io is a progressive web app designed by developers for developers. It contains all the common tools needed for day to day coding development.
+      </p>
     </ion-card-content>
   </ion-card>
 
@@ -26,14 +30,45 @@
       Epoch Time Converter
     </ion-card-header>
     <ion-card-content>
-      Epoch Time Converter can help you easily converts from Unix (Epoch) time miliseconds to human readable time. Or from a human readable timestamp to the miliseconds since Epoch time.
-      <br/>
-      <button [navPush]="epochConverter" ion-button>Go To Epoch Time Converter</button>
+      <p>
+      Epoch Time Converter can help you easily convert from Unix (Epoch) time to human readable time. Or from a human readable timestamp to the miliseconds since Epoch time.
+      </p>
+      <button [navPush]="epochConverter" ion-button>Epoch Converter</button>
     </ion-card-content>
   </ion-card>
 
+  <ion-card>
+    <ion-card-header>
+      Other Modules
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+      We are also planning to release a list of other tools:
+      </p>
+    </ion-card-content>
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="code-working" item-start></ion-icon>
+        Character Encoding Converter
+      </button>
+      <button ion-item>
+        <ion-icon name="code-working" item-start></ion-icon>
+        Unicode Code Converter
+      </button>
+      <button ion-item>
+        <ion-icon name="code-working" item-start></ion-icon>
+        Floating Point to Hex Converter
+      </button>
+      <button ion-item>
+        <ion-icon name="code-working" item-start></ion-icon>
+        Base64 Online Encoder/Decoder
+      </button>
+    </ion-list>
+  </ion-card>
+
   <p>
-    This app is currently under development. Please see <a href="http://chenyumin.com">Chen Yumin</a> for more information.
+    This app is currently under development. <br/>
+    Please contact me, the author <a href="http://chenyumin.com">Chen Yumin</a> for more information.
   </p>
 
   <!--<button ion-button secondary menuToggle>View Modules</button>-->
