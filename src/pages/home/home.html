@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>CoderBox Modules</h3>
 
   <ion-card>
     <ion-card-header>
@@ -16,6 +15,20 @@
     </ion-card-header>
     <ion-card-content>
       CoderBox is an app designed by developers for developers. It contains all the common tools needed for development.
+    </ion-card-content>
+  </ion-card>
+
+
+  <h3>CoderBox Modules</h3>
+
+  <ion-card>
+    <ion-card-header>
+      Epoch Time Converter
+    </ion-card-header>
+    <ion-card-content>
+      Epoch Time Converter can help you easily converts from Unix (Epoch) time miliseconds to human readable time. Or from a human readable timestamp to the miliseconds since Epoch time.
+      <br/>
+      <button [navPush]="epochConverter" ion-button>Go To Epoch Time Converter</button>
     </ion-card-content>
   </ion-card>
 

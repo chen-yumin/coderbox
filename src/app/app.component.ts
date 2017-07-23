@@ -9,7 +9,7 @@ import { EpochConverterPage } from '../pages/epoch-converter/epoch-converter';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class CoderBox {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
@@ -22,7 +22,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home'},
-      { title: 'Epoch Converter', component: EpochConverterPage, icon: 'epoch-converter'}
+      { title: 'Epoch Converter', component: EpochConverterPage, icon: 'clock'}
     ];
 
   }

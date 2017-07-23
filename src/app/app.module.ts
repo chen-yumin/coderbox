@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { MyApp } from './app.component';
+import { CoderBox } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EpochConverterPage } from '../pages/epoch-converter/epoch-converter';
 
@@ -11,17 +11,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
-    MyApp,
+    CoderBox,
     HomePage,
     EpochConverterPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(CoderBox),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    CoderBox,
     HomePage,
     EpochConverterPage
   ],
