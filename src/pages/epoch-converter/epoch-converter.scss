@@ -5,8 +5,10 @@ epoch-converter {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "banner banner"
+      "clock clock"
       "epoch epoch"
-      "human human";
+      "human human"
+      "intro intro";
 
 
     &::before {
@@ -33,6 +35,36 @@ epoch-converter {
       grid-area: banner;
     }
 
+    #intro-card {
+      grid-area: intro;
+
+      p {
+        margin-bottom: 16px;
+      }
+    }
+
+    #epoch-clock-card {
+      grid-area: clock;
+
+      ion-card-content {
+
+        #clock-seconds {
+          border: 4px solid lighten(gray, 30%);
+          border-radius: 50%;
+          width: 128px;
+          height: 128px;
+          margin: auto;
+          text-align: center;
+
+          p {
+            display: inline-block;
+            margin-top: 50%;
+            line-height: 0;
+          }
+        }
+      }
+    }
+
     #epoch-time-card {
       grid-area: epoch;
     }
@@ -44,6 +76,7 @@ epoch-converter {
     @media (min-width: breakpoint-min(lg)) {
       grid-template-areas:
         "banner banner"
+        "clock intro"
         "epoch human";
     }
   }

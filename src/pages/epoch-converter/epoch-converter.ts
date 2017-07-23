@@ -7,13 +7,25 @@ import { Observable } from 'rxjs/Rx';
   templateUrl: 'epoch-converter.html'
 })
 export class EpochConverterPage {
-  currentTime: number;
+  currentSeconds: number;
+  currentDateString: string;
+  currentTimeString: string;
   epochTime: number;
   isoTimeString: string;
 
   constructor(public navCtrl: NavController) {
     let timer = Observable.timer(0, 1000);
-    timer.subscribe(t => this.currentTime = Math.round(new Date().getTime()/1000.0));
+    timer.subscribe(t => {
+      let date = new Date();
+      this.currentSeconds = Math.round(date.getTime()/1000.0);
+      this.currentDateString = date.toLocaleDateString('en', {
+        "day": "numeric",
+        "month": "long",
+        "year": "numeric"
+      });
+      this.currentTimeString = date.toString().split(' ')
+        .slice(4).join(' ');
+    });
     this.epochTime = Math.round(new Date().getTime()/1000.0);
     this.updateTime();
   }

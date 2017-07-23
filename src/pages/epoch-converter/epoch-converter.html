@@ -13,11 +13,29 @@
 
     <ion-card id="epoch-clock-card">
       <ion-card-header>
-        Unix Epoch Clock
+        Today, {{ currentDateString }}
+        <p>{{ currentTimeString }}</p>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="clock-seconds">
+            <p>{{ currentSeconds }}</p>
+        </div>
+        <p padding>
+          seconds elapsed since January 1, 1970
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="intro-card">
+      <ion-card-header>
+        What is Epoch Converter?
       </ion-card-header>
       <ion-card-content>
         <p>
-          {{ currentTime }}
+          The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds.
+        </p>
+        <p>
+          This Epoch Converter tool helps you to conveniently convert between epoch timestamp seconds and human readable time. Type in the timestamp on the cards down below and the corresponding time will be converted.
         </p>
       </ion-card-content>
     </ion-card>
