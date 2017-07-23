@@ -23,13 +23,6 @@ epoch-converter {
       z-index: -1;
     }
 
-    ion-card {
-      //margin: 10px;
-      ion-card-header {
-        color: map-get($colors, primary);
-      }
-    }
-
     #banner {
       height: 200px;
       grid-area: banner;
@@ -49,7 +42,7 @@ epoch-converter {
       ion-card-content {
 
         #clock-seconds {
-          border: 4px solid lighten(gray, 30%);
+          border: 4px solid map-get($colors, primary);//lighten(gray, 30%);
           border-radius: 50%;
           width: 128px;
           height: 128px;

@@ -23,6 +23,11 @@ $app-direction: ltr;
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 $background-color: #f1f1f1;
 $list-background-color: #fff;
+
+$toolbar-background:         #34495E;
+$toolbar-border-color:       #ECF0F1;
+$toolbar-text-color:         #f1f1f1;
+
 $card-ios-header-font-size: 1.8rem;
 $card-md-header-font-size: 1.8rem;
 $card-wp-header-font-size: 1.8rem;
@@ -39,8 +44,8 @@ $card-wp-text-color: #757575;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #4e93b4,
-  secondary:  #32db64,
+  primary:    #2980B9,
+  secondary:  #16A085,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222
