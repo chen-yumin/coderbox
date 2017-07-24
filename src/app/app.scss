@@ -18,8 +18,12 @@ ion-menu {
   ion-content {
     ion-list {
       button[ion-item] {
-        height: 6rem;
+        //height: 6rem;
         background: none;
+
+        &:hover {
+          background: lighten(gray, 35%);
+        }
       }
     }
   }

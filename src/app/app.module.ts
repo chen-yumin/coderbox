@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { CoderBox } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EpochConverterPage } from '../pages/epoch-converter/epoch-converter';
+import { FloatConverterPage } from '../pages/float-converter/float-converter';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,7 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     CoderBox,
     HomePage,
-    EpochConverterPage
+    EpochConverterPage,
+    FloatConverterPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     CoderBox,
     HomePage,
-    EpochConverterPage
+    EpochConverterPage,
+    FloatConverterPage
   ],
   providers: [
     StatusBar,

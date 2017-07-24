@@ -39,6 +39,18 @@
 
   <ion-card>
     <ion-card-header>
+      Floating Point Converter
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+      Floating Point Converter can help you easily convert single (32-bit) or double (64-bit) precision floating-point values to its IEEE Standard 754 floating point in binary and hexdecimal representation.
+      </p>
+      <button [navPush]="floatConverter" ion-button>Floating Point Converter</button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
       Other Modules
     </ion-card-header>
     <ion-card-content>
@@ -54,10 +66,6 @@
       <button ion-item>
         <ion-icon name="code-working" item-start></ion-icon>
         Unicode Code Converter
-      </button>
-      <button ion-item>
-        <ion-icon name="code-working" item-start></ion-icon>
-        Floating Point to Hex Converter
       </button>
       <button ion-item>
         <ion-icon name="code-working" item-start></ion-icon>

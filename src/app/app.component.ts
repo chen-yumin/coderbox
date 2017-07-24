@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { EpochConverterPage } from '../pages/epoch-converter/epoch-converter';
+import { FloatConverterPage } from '../pages/float-converter/float-converter';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +23,8 @@ export class CoderBox {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home'},
-      { title: 'Epoch Converter', component: EpochConverterPage, icon: 'clock'}
+      { title: 'Epoch Converter', component: EpochConverterPage, icon: 'clock'},
+      { title: 'Floating Point Converter', component: FloatConverterPage, icon: 'leaf'}
     ];
 
   }
