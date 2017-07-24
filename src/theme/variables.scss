@@ -28,6 +28,8 @@ $toolbar-background:         #283E4A;
 $toolbar-border-color:       #ECF0F1;
 $toolbar-text-color:         #f1f1f1;
 
+$text-input-highlight-color-valid: lighten(#2980B9, 15%);
+
 $card-ios-header-font-size: 1.8rem;
 $card-md-header-font-size: 1.8rem;
 $card-wp-header-font-size: 1.8rem;
@@ -48,7 +50,8 @@ $colors: (
   secondary:  #16A085,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  primary-dark: #283E4A
 );
 
 
