@@ -15,6 +15,11 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 ion-menu {
+  ion-header {
+    ion-toolbar {
+      border-right: 0.5px solid #5C6F7C !important;
+    }
+  }
   ion-content {
     ion-list {
       button[ion-item] {
@@ -24,7 +29,31 @@ ion-menu {
         &:hover {
           background: lighten(gray, 35%);
         }
+
+        .item-inner {
+          border: none !important;
+          min-height: 6rem;
+
+          ion-label {
+            color: #3F3F3F;
+
+            ion-icon {
+              color: #888;
+              font-size: 2.6rem;
+              width: 2.6rem;
+              margin-right: 8px;
+            }
+          }
+        }
       }
     }
   }
+}
+
+.split-pane-visible > .split-pane-side {
+  border-right: none !important;
+}
+
+.menu-inner ion-content {
+  //border-right: 0.5px solid #dedede;
 }
