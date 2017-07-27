@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { CoderBox } from './app.component';
@@ -26,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: LocationStrategy, useClass: PathLocationStrategy},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
