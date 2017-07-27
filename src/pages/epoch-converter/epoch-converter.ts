@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, IonicPage } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 
+@IonicPage({
+  name: 'epoch-converter',
+  segment: 'epoch-converter'
+})
 @Component({
   selector: 'epoch-converter',
   templateUrl: 'epoch-converter.html'

@@ -3,28 +3,24 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { EpochConverterPage } from '../pages/epoch-converter/epoch-converter';
-import { FloatConverterPage } from '../pages/float-converter/float-converter';
-
 @Component({
   templateUrl: 'app.html'
 })
 export class CoderBox {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = 'home';
 
-  pages: Array<{title: string, component: any, icon: string}>;
+  pages: Array<{title: string, component: string, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage, icon: 'home'},
-      { title: 'Epoch Time Converter', component: EpochConverterPage, icon: 'clock'},
-      { title: 'Floating Point Converter', component: FloatConverterPage, icon: 'leaf'}
+      { title: 'Home', component: 'home', icon: 'home'},
+      { title: 'Epoch Time Converter', component: 'epoch-converter', icon: 'clock'},
+      { title: 'Floating Point Converter', component: 'float-converter', icon: 'leaf'}
     ];
 
   }
@@ -36,6 +32,7 @@ export class CoderBox {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
   }
 
   openPage(page) {

@@ -3,19 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { CoderBox } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { EpochConverterPage } from '../pages/epoch-converter/epoch-converter';
-import { FloatConverterPage } from '../pages/float-converter/float-converter';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
 @NgModule({
   declarations: [
-    CoderBox,
-    HomePage,
-    EpochConverterPage,
-    FloatConverterPage
+    CoderBox
   ],
   imports: [
     BrowserModule,
@@ -23,10 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    CoderBox,
-    HomePage,
-    EpochConverterPage,
-    FloatConverterPage
+    CoderBox
   ],
   providers: [
     StatusBar,
