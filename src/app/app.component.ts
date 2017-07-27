@@ -3,22 +3,24 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { HomePage } from '../pages/home/home';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class CoderBox {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'home';
+  rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: string, icon: string}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: 'home', icon: 'home'},
+      { title: 'Home', component: HomePage, icon: 'home'},
       { title: 'Epoch Time Converter', component: 'epoch-converter', icon: 'clock'},
       { title: 'Floating Point Converter', component: 'float-converter', icon: 'leaf'}
     ];
