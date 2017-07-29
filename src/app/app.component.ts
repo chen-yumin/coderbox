@@ -21,8 +21,8 @@ export class CoderBox {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home'},
-      { title: 'Epoch Time Converter', component: 'epoch-converter', icon: 'clock'},
-      { title: 'Floating Point Converter', component: 'float-converter', icon: 'leaf'}
+      { title: 'Epoch Time Converter', component: 'epoch-converter', icon: 'epoch-converter'},
+      { title: 'Floating Point Converter', component: 'float-converter', icon: 'float-converter'}
     ];
 
   }
