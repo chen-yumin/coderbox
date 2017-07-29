@@ -3,11 +3,17 @@
   "short_name": "CoderBox",
   "start_url": "index.html",
   "display": "standalone",
-  "icons": [{
-    "src": "assets/imgs/logo.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
+  "icons": [
+    {
+      "src": "assets/icon/192c.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },{
+      "src": "assets/icon/512c.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "background_color": "#283E4A",
   "theme_color": "#283E4A"
 }
