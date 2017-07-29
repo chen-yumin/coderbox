@@ -67,14 +67,14 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="date" item-start></ion-icon>
-          <ion-datetime displayFormat="DDDD MMMM D, YYYY &#9207;"
+          <ion-datetime displayFormat="DDDD MMMM D, YYYY"
             pickerFormat="MMMM D, YYYY" min="1900" max="2100"
             [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
           </ion-datetime>
         </ion-item>
         <ion-item>
           <ion-icon name="time" item-start></ion-icon>
-          <ion-datetime displayFormat="HH:mm:ss &#9207;"
+          <ion-datetime displayFormat="HH:mm:ss"
             [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
           </ion-datetime>
         </ion-item>

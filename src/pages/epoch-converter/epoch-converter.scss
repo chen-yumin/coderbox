@@ -76,6 +76,19 @@ epoch-converter {
 
     #human-time-card {
       grid-area: human;
+
+      ion-datetime {
+        .datetime-text {
+          &:after {
+            content: '';
+            position: absolute;
+            margin-left: 8px;
+            margin-top: 7px;
+            border: 5px solid transparent;
+            border-top: 5px solid black;
+          }
+        }
+      }
     }
 
     #date-string-card {
