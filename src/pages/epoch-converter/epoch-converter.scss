@@ -8,6 +8,7 @@ epoch-converter {
       "clock clock"
       "epoch epoch"
       "human human"
+      "datestr datestr"
       "intro intro";
 
 
@@ -77,11 +78,16 @@ epoch-converter {
       grid-area: human;
     }
 
+    #date-string-card {
+      grid-area: datestr;
+    }
+
     @media (min-width: breakpoint-min(lg)) {
       grid-template-areas:
         "banner banner"
         "clock intro"
-        "epoch human";
+        "epoch human"
+        "datestr ad";
     }
   }
 }

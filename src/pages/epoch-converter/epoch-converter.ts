@@ -16,6 +16,7 @@ export class EpochConverterPage {
   currentTimeString: string;
   epochTime: number;
   isoTimeString: string;
+  dateString: string;
 
   constructor(public navCtrl: NavController) {
     let timer = Observable.timer(0, 1000);
@@ -35,13 +36,21 @@ export class EpochConverterPage {
   }
 
   updateTime() : void {
-    const date = new Date(this.epochTime * 1000);
+    const date = new Date(this.epochTime > 500000000000? this.epochTime * 1.0 :
+      this.epochTime * 1000);
     this.isoTimeString = date.toISOString();
+    this.dateString = date.toString();
   }
 
   onChangeIsoTime() : void {
     this.epochTime = Math.round(new Date(this.isoTimeString).getTime()/1000.0);
     this.updateTime();
+  }
+
+  onChangeDateString() : void {
+    let time = Math.round(new Date(this.dateString).getTime()/1000.0);
+    this.epochTime = time? time: this.epochTime;
+    this.updateTime()
   }
 
 }

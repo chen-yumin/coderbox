@@ -53,6 +53,9 @@
             (input)='updateTime()'>
           </ion-input>
         </ion-item>
+        <p padding text-right>
+          {{ epochTime > 500000000000? 'miliseconds' : 'seconds' }}
+        </p>
       </ion-card-content>
     </ion-card>
 
@@ -62,7 +65,7 @@
         Human Readable Time
       </ion-card-header>
       <ion-card-content>
-        <ion-item >
+        <ion-item>
           <ion-icon name="date" item-start></ion-icon>
           <ion-datetime displayFormat="DDDD MMMM D, YYYY &#9207;"
             pickerFormat="MMMM D, YYYY" min="1900" max="2100"
@@ -74,6 +77,21 @@
           <ion-datetime displayFormat="HH:mm:ss &#9207;"
             [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
           </ion-datetime>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="date-string-card">
+      <ion-card-header>
+        <ion-icon name="epoch-converter"></ion-icon>
+        Date Time String
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="note" item-start></ion-icon>
+          <ion-textarea type="string" [(ngModel)]="dateString"
+            (change)='onChangeDateString()'>
+          </ion-textarea>
         </ion-item>
       </ion-card-content>
     </ion-card>
