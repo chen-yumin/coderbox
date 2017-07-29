@@ -1,0 +1,10 @@
+ion-item {
+
+  ion-icon[item-start] {
+    color: gray;
+
+    & + .item-inner {
+      margin-left: 0 !important;
+    }
+  }
+}

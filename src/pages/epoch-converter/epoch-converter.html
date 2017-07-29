@@ -48,6 +48,7 @@
       </ion-card-header>
       <ion-card-content>
         <ion-item>
+          <ion-icon name="time-convert" item-start></ion-icon>
           <ion-input type="number" [(ngModel)]="epochTime"
             (input)='updateTime()'>
           </ion-input>
@@ -61,15 +62,16 @@
         Human Readable Time
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-datetime displayFormat="DDDD MMMM D, YYYY"
+        <ion-item >
+          <ion-icon name="date" item-start></ion-icon>
+          <ion-datetime displayFormat="DDDD MMMM D, YYYY &#9207;"
             pickerFormat="MMMM D, YYYY" min="1900" max="2100"
-            [(ngModel)]="isoTimeString"
-            (ionChange)='onChangeIsoTime()'>
+            [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
           </ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-datetime displayFormat="HH:mm:ss" displayFormat="HH:mm:ss"
+          <ion-icon name="time" item-start></ion-icon>
+          <ion-datetime displayFormat="HH:mm:ss &#9207;"
             [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
           </ion-datetime>
         </ion-item>

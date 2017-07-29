@@ -35,6 +35,10 @@ float-converter {
       }
     }
 
+    #float-card {
+      grid-area: float;
+    }
+
     @media (min-width: breakpoint-min(lg)) {
       grid-template-areas:
         "banner banner"
