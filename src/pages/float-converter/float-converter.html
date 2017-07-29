@@ -26,15 +26,39 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card id="float-card">
+    <ion-card id="decimal-float-card">
       <ion-card-header>
         <ion-icon name="float-converter"></ion-icon>
-        Floating Point
+        Decimal Floating-Point
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="float-convert" item-start></ion-icon>
+          <ion-input type="number" placeholder="Enter floating-point number here..." [(ngModel)]="decimal"
+            (input)='updateDecimal()'>
+          </ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="single-precision-card">
+      <ion-card-header>
+        <ion-icon name="float-converter"></ion-icon>
+        Single Precision (32 bit)
       </ion-card-header>
       <ion-card-content>
         <p>
           This is still under development.
         </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="double-precision-card">
+      <ion-card-header>
+        <ion-icon name="float-converter"></ion-icon>
+        Double Precision (64 bit)
+      </ion-card-header>
+      <ion-card-content>
         <p>
           We are sorry for any inconvenience.
         </p>

@@ -5,8 +5,9 @@ float-converter {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "banner banner"
-      "float float"
-      "rep rep"
+      "decimal decimal"
+      "single single"
+      "double double"
       "intro intro";
 
 
@@ -35,15 +36,15 @@ float-converter {
       }
     }
 
-    #float-card {
-      grid-area: float;
+    #decimal-float-card {
+      grid-area: decimal;
     }
 
     @media (min-width: breakpoint-min(lg)) {
       grid-template-areas:
         "banner banner"
-        "intro ad"
-        "float rep";
+        "decimal intro"
+        "single double";
     }
   }
 }

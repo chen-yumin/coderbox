@@ -10,7 +10,13 @@ import { NavController, IonicPage } from 'ionic-angular';
   templateUrl: 'float-converter.html'
 })
 export class FloatConverterPage {
+  decimal: number;
+
   constructor(public navCtrl: NavController) {
+  }
+
+  updateDecimal() : void {
+    
   }
 
 }
