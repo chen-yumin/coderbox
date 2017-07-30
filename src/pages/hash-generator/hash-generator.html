@@ -13,6 +13,7 @@
 
     <ion-card id="intro-card">
       <ion-card-header>
+        <ion-icon name="about"></ion-icon>
         What is Hash Generator?
       </ion-card-header>
       <ion-card-content>
@@ -24,13 +25,13 @@
 
     <ion-card id="string-card">
       <ion-card-header>
+        <ion-icon name="hash-generator"></ion-icon>
         Textual String
       </ion-card-header>
       <ion-card-content>
         <ion-item>
-          <ion-icon name="hash-generator" item-start></ion-icon>
-          <ion-textarea type="string" placeholder="Enter your string here..."
-          [(ngModel)]="str" (input)='updateStr()'>
+          <ion-label floating>Enter String</ion-label>
+          <ion-textarea type="string" [(ngModel)]="str" (input)='updateStr()' fz-elastic>
           </ion-textarea>
         </ion-item>
       </ion-card-content>
@@ -43,8 +44,8 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="md5" item-start></ion-icon>
-          <ion-textarea type="string" [(ngModel)]="md5">
-          </ion-textarea>
+          <ion-input type="string" [(ngModel)]="md5">
+          </ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -56,8 +57,8 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="sha1" item-start></ion-icon>
-          <ion-textarea type="string" [(ngModel)]="sha1">
-          </ion-textarea>
+          <ion-input type="string" [(ngModel)]="sha1">
+          </ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -69,8 +70,8 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="sha256" item-start></ion-icon>
-          <ion-textarea type="string" [(ngModel)]="sha256">
-          </ion-textarea>
+          <ion-input type="string" [(ngModel)]="sha256">
+          </ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -82,8 +83,8 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="sha512" item-start></ion-icon>
-          <ion-textarea type="string" [(ngModel)]="sha512">
-          </ion-textarea>
+          <ion-input type="string" [(ngModel)]="sha512">
+          </ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -95,8 +96,8 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="rmd" item-start></ion-icon>
-          <ion-textarea type="string" [(ngModel)]="rmd160">
-          </ion-textarea>
+          <ion-input type="string" [(ngModel)]="rmd160">
+          </ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>

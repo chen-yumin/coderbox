@@ -5,11 +5,13 @@ hash-generator {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "banner banner"
-      "text text"
+      "str str"
       "md5 md5"
       "sha1 sha1"
+      "sha256 sha256"
+      "sha512 sha512"
+      "rmd160 rmd160"
       "intro intro";
-
 
     &::before {
       content: '';
@@ -37,7 +39,7 @@ hash-generator {
     }
 
     #string-card {
-      grid-area: string;
+      grid-area: str;
     }
 
     #md5-card {
@@ -56,12 +58,17 @@ hash-generator {
       grid-area: sha512;
     }
 
+    #rmd160-card {
+      grid-area: rmd160;
+    }
+
     @media (min-width: breakpoint-min(lg)) {
       grid-template-areas:
         "banner banner"
-        "string intro"
+        "str intro"
         "md5 sha1"
-        "sha256 sha512";
+        "sha256 sha512"
+        "rmd160 ad";
     }
   }
 }

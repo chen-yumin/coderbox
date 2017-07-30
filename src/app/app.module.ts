@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { ElasticModule } from 'angular2-elastic';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(CoderBox),
+    ElasticModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
