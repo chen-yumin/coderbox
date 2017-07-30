@@ -28,6 +28,19 @@
 
   <ion-card>
     <ion-card-header>
+      <ion-icon name="hash-generator"></ion-icon>
+      Hash Generator
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+      Hash Generator is a simple tool to create cryptographic hash codes from a string. It supports most used comman hash functions, such as MD5, SHA-1, SHA-256, SHA-512, RIPEMD-160.
+      </p>
+      <button [navPush]="'hash-generator'" ion-button>Hash Generator</button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
       <ion-icon name="epoch-converter"></ion-icon>
       Epoch Time Converter
     </ion-card-header>

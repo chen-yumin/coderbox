@@ -21,6 +21,7 @@ export class CoderBox {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home'},
+      { title: 'Hash Generator', component: 'hash-generator', icon: 'hash-generator'},
       { title: 'Epoch Time Converter', component: 'epoch-converter', icon: 'epoch-converter'},
       { title: 'Floating Point Converter', component: 'float-converter', icon: 'float-converter'}
     ];

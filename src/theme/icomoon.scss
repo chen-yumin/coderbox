@@ -36,6 +36,9 @@ ion-icon[ng-reflect-name="menu"]:before {
   content: "\e901";
 }
 ion-icon[ng-reflect-name="home"]:before {
+  content: "\e907";
+}
+ion-icon[ng-reflect-name="hash-generator"]:before {
   content: "\e902";
 }
 ion-icon[ng-reflect-name="epoch-converter"]:before {
@@ -55,6 +58,24 @@ ion-icon[ng-reflect-name="about"]:before {
 }
 ion-icon[ng-reflect-name="settings"]:before {
   content: "\eb61";
+}
+ion-icon[ng-reflect-name="rmd"]:before {
+  content: "\e908";
+}
+ion-icon[ng-reflect-name="hmac"]:before {
+  content: "\e909";
+}
+ion-icon[ng-reflect-name="sha512"]:before {
+  content: "\e90a";
+}
+ion-icon[ng-reflect-name="sha256"]:before {
+  content: "\e90b";
+}
+ion-icon[ng-reflect-name="sha1"]:before {
+  content: "\e90c";
+}
+ion-icon[ng-reflect-name="md5"]:before {
+  content: "\e90d";
 }
 ion-icon[ng-reflect-name="note"]:before {
   content: "\e613";
