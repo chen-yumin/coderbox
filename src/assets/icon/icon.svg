@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="3.2 3.2 25.6 25.6"><path fill="#33C4E8" d="M5.7 20.8l-2.3-4c-.3-.5-.3-1.1 0-1.6l4.5-7.7h5.6L5.7 20.8zM13.5 24.5H7.9l-1.6-2.8 2.8-4.9"/><path fill="#34495E" d="M23.1 26.4l.6-1.2H8.3l.7 1.2"/><path fill="#33C4E8" d="M28.6 16.7l-4.5 7.7h-5.6L26.2 11l2.3 4c.4.6.4 1.2.1 1.7zM23 15l-4.5-7.6h5.6l1.6 2.8"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <style>
+    .darker{fill:#032722;}
+    .lighter{fill:#009E8C;}
+  </style>
+  <path class="darker" d="M8 0L4.5 2l7 4 3.4-2z"/>
+  <path class="lighter" d="M11.4 6v3.3l3.5-2V4z"/>
+  <path class="darker" d="M4.5 6L1 4v8l3.6 2v-4z"/>
+  <path class="lighter" d="M7.4 4.3L4 2.3 1 4l3.5 2z"/>
+  <path class="darker" d="M8 12v4l7-4V8l-6.2 3.5z"/>
+  <path class="lighter" d="M5 10.3v4L8 16v-4z"/>
+</svg>

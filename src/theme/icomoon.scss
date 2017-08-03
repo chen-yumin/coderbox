@@ -18,7 +18,6 @@ ion-icon {
   font-variant: normal;
   text-transform: none;
   vertical-align: text-bottom;
-  padding: 0 6px;
   line-height: 1;
 
   /* Better Font Rendering =========== */
@@ -26,8 +25,32 @@ ion-icon {
   -moz-osx-font-smoothing: grayscale;
 }
 
-ion-icon[ng-reflect-name="coderbox"]:before {
-  content: "\e900";
+ion-icon[ng-reflect-name$="coderbox"] {
+  position: relative;
+
+  &:hover {
+    .darker:before {
+      color: #2BB673;
+      transition: color 0.3s;
+    }
+    .lighter:before {
+      color: #009444;
+      transition: color 0.3s;
+    }
+  }
+  .darker:before {
+    content: "\e900";
+    color: #FFF;
+  }
+  .lighter:before {
+    content: "\e90e";
+    position: absolute;
+    left: 0;
+    color: #D1D3D4;
+  }
+}
+ion-icon[ng-reflect-name="coderbox-grayscale"]:before {
+  content: "\e90f";
 }
 ion-icon[ng-reflect-name$="arrow-back"]:before {
   content: "\e903";
