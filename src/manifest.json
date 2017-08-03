@@ -5,11 +5,11 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "assets/icon/192.png",
+      "src": "assets/icon/192m.png",
       "sizes": "192x192",
       "type": "image/png"
     },{
-      "src": "assets/icon/512.png",
+      "src": "assets/icon/512m.png",
       "sizes": "512x512",
       "type": "image/png"
     }
