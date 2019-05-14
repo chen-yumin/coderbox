@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Epoch Time Converter
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <main>
+
+  <ion-card id="welcome-card" class="welcome-card">
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Convert Epoch Timestamps</ion-card-subtitle>
+        <ion-card-title>Epoch Time Converter</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds.
+        </p>
+        <p>
+          This Epoch Converter tool helps you to conveniently convert between epoch timestamp seconds and human readable time. Type in the timestamp on the cards and the corresponding time will be converted.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="epoch-clock-card">
+      <ion-card-header>
+        <ion-card-subtitle>Today, {{ currentDateString }}</ion-card-subtitle>
+        <ion-card-title>{{ currentTimeString }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="clock-seconds">
+          <p>{{ currentSeconds }}</p>
+        </div>
+        <p padding>
+          seconds elapsed since January 1, 1970
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="epoch-time-card">
+      <ion-card-header>
+        <ion-card-subtitle>Unix Epoch Time</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="hourglass" item-start></ion-icon>
+          <ion-input type="number" [(ngModel)]="epochTime"
+            (input)='updateTime()'>
+          </ion-input>
+        </ion-item>
+        <p padding text-right>
+          {{ epochTime > 500000000000? 'miliseconds' : 'seconds' }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="human-time-card">
+      <ion-card-header>
+        <ion-card-subtitle>Human Readable Time</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="calendar" item-start></ion-icon>
+          <ion-datetime displayFormat="DDDD MMMM D, YYYY"
+            pickerFormat="MMMM D, YYYY" min="1900" max="2100"
+            [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
+          </ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="time" item-start></ion-icon>
+          <ion-datetime displayFormat="HH:mm:ss"
+            [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
+          </ion-datetime>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="date-string-card">
+      <ion-card-header>
+        <ion-card-subtitle>Date Time String</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="timer" item-start></ion-icon>
+          <ion-textarea type="string" [(ngModel)]="dateString"
+            (change)='onChangeDateString()'>
+          </ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+  </main>
+</ion-content>

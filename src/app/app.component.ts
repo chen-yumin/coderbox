@@ -19,6 +19,11 @@ export class AppComponent {
       title: 'Hash Generator',
       url: '/hash-generator',
       icon: 'code-working'
+    },
+    {
+      title: 'Epoch Time Converter',
+      url: '/epoch-converter',
+      icon: 'alarm'
     }
   ];
 

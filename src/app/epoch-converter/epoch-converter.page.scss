@@ -1,0 +1,98 @@
+/*
+ * CSS Grid Layout
+ */
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "welcome welcome"
+        "clock clock"
+        "epoch epoch"
+        "human human"
+        "datestr datestr";
+
+    @media (min-width: 992px) {
+        grid-template-areas:
+            "welcome welcome"
+            "clock epoch"
+            "human datestr";
+    }
+
+    #welcome-card {
+        grid-area: welcome;
+    }
+
+    #epoch-clock-card {
+        grid-area: clock;
+    }
+
+    #epoch-time-card {
+        grid-area: epoch;
+    }
+
+    #human-time-card {
+        grid-area: human;
+    }
+
+    #date-string-card {
+        grid-area: datestr;
+    }
+}
+
+/*
+ * Styling
+ */
+ion-content {
+    --ion-background-color: var(--ion-color-light, #f4f5f8);
+    --ion-item-background: white;
+}
+
+main {
+
+    #epoch-clock-card {
+        ion-card-content {
+
+            #clock-seconds {
+                border: 4px solid var(--ion-color-primary);
+                border-radius: 50%;
+                width: 128px;
+                height: 128px;
+                margin: auto;
+                text-align: center;
+
+                &:hover {
+                    border: 8px solid var(--ion-color-primary-shade);
+                    background: var(--ion-color-primary);
+                    transition: all 0.2s;
+
+                    p {
+                        color: white;
+                    }
+                }
+
+                p {
+                    display: inline-block;
+                    margin-top: 50%;
+                    line-height: 0;
+                    user-select: auto;
+                }
+            }
+        }
+    }
+
+    #human-time-card {
+        ion-datetime {
+            .datetime-text {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    margin-left: 8px;
+                    margin-top: 7px;
+                    border: 5px solid transparent;
+                    border-top: 5px solid black;
+                }
+            }
+        }
+    }
+
+}
