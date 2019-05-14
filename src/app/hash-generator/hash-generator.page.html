@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Hash Generator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main>
+
+    <ion-card id="welcome-card" class="welcome-card">
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Generate Hash Codes</ion-card-subtitle>
+        <ion-card-title>Hash Generator</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Hash Generator is a simple tool to create cryptographic hash codes from a string. It supports most used comman hash functions, such as MD5, SHA-1, SHA-256, SHA-512, RIPEMD-160.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="string-card">
+      <ion-card-header>
+        <ion-card-subtitle>Texual String</ion-card-subtitle>
+        <ion-card-title>Your Own Text</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-item>
+          <ion-textarea placeholder="Enter your raw text here…" type="string" [(ngModel)]="str" (input)='updateHash()'>
+          </ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="md5-card">
+      <ion-card-header>
+          <ion-card-subtitle>MD5</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="md5" item-start></ion-icon>
+          <ion-input type="string" [(ngModel)]="md5">
+          </ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="sha1-card">
+      <ion-card-header>
+          <ion-card-subtitle>SHA-1</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="sha1" item-start></ion-icon>
+          <ion-input type="string" [(ngModel)]="sha1">
+          </ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="sha256-card">
+      <ion-card-header>
+          <ion-card-subtitle>SHA-256</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="sha256" item-start></ion-icon>
+          <ion-input type="string" [(ngModel)]="sha256">
+          </ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="sha512-card">
+      <ion-card-header>
+          <ion-card-subtitle>SHA-512</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="sha512" item-start></ion-icon>
+          <ion-input type="string" [(ngModel)]="sha512">
+          </ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="rmd160-card">
+      <ion-card-header>
+          <ion-card-subtitle>RIPEMD-160</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-icon name="rmd" item-start></ion-icon>
+          <ion-input type="string" [(ngModel)]="rmd160">
+          </ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+  </main>
+
+</ion-content>

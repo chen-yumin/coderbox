@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
+  },
+  { 
+    path: 'hash-generator', 
+    loadChildren: './hash-generator/hash-generator.module#HashGeneratorPageModule' 
   }
 ];
 
