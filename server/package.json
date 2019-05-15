@@ -1,0 +1,34 @@
+{
+  "name": "coderbox-node",
+  "description": "CoderBox backend server developed using Node.js",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Chen Yumin <hello@chenyumin.com>",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start:dev": "NODE_ENV=development nodemon --exec babel-node src/app.js",
+    "start:prod": "NODE_ENV=production node dist/app.js",
+    "start": "npm run start:prod",
+    "test": "NODE_ENV=test nyc --require @babel/register mocha --exit",
+    "deploy": "gcloud app deploy"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0",
+    "nyc": "^14.1.0"
+  }
+}
