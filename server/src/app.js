@@ -1,9 +1,12 @@
 'use strict';
 
 import express from 'express';
+import compression from 'compression';
 import path from 'path';
 
 const app = express();
+
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, '../www'), {
   // extensions: ['html', 'htm']
