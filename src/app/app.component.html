@@ -3,9 +3,14 @@
     <ion-menu>
       <ion-header>
         <ion-toolbar>
-          <ion-title>Menu</ion-title>
+          <ion-title id="menubar-title">
+              <ion-icon class="coderbox-icon lighter" src="assets/icon/coderbox-part-lighter.svg"></ion-icon>
+              <ion-icon class="coderbox-icon darker" src="assets/icon/coderbox-part-darker.svg"></ion-icon>
+            CoderBox
+          </ion-title>
         </ion-toolbar>
       </ion-header>
+
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">

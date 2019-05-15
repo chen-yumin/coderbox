@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="stroke: none">
+<style>
+  .cb-darker{fill:#032722;}
+  .cb-lighter{fill:#009E8C;}
+</style>
+  <path class="cb-darker" d="M8 0L4.5 2l7 4 3.4-2z"/>
+  <path class="cb-lighter" d="M11.4 6v3.3l3.5-2V4z"/>
+  <path class="cb-darker" d="M4.5 6L1 4v8l3.6 2v-4z"/>
+  <path class="cb-lighter" d="M7.4 4.3L4 2.3 1 4l3.5 2z"/>
+  <path class="cb-darker" d="M8 12v4l7-4V8l-6.2 3.5z"/>
+  <path class="cb-lighter" d="M5 10.3v4L8 16v-4z"/>
+</svg>
