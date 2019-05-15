@@ -1,0 +1,53 @@
+/*
+ * CSS Grid Layout
+ */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "wel wel"
+    "mod mod"
+    "rdm rdm"
+    "ctb ctb";
+
+  @media (min-width: 992px) {
+    grid-template-areas:
+      "wel wel"
+      "mod rdm"
+      "ctb ctb";
+  }
+
+  #welcome-card {
+    grid-area: wel;
+  }
+
+  #modules-card {
+    grid-area: mod;
+  }
+
+  #roadmap-card {
+    grid-area: rdm;
+  }
+
+  #contribution {
+    grid-area: ctb;
+  }
+}
+
+/*
+* Styling
+*/
+ion-content {
+  --ion-background-color: var(--ion-color-light, #f4f5f8);
+  --ion-item-background: white;
+
+  ion-list {
+    --ion-item-background: var(--ion-color-light, #f4f5f8);
+  }
+}
+
+@media (min-width: 992px) {
+  .menubar-title {
+    display: none;
+  }
+}

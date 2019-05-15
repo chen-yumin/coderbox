@@ -13,9 +13,9 @@
   <main>
 
     <ion-card id="welcome-card" class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-img src="/assets/hash-generator/welcome.svg"></ion-img>
       <ion-card-header>
-        <ion-card-subtitle>Generate Hash Codes</ion-card-subtitle>
+      <ion-card-subtitle>Generate Hash Codes</ion-card-subtitle>
         <ion-card-title>Hash Generator</ion-card-title>
       </ion-card-header>
       <ion-card-content>
@@ -41,66 +41,81 @@
 
     <ion-card id="md5-card">
       <ion-card-header>
-          <ion-card-subtitle>MD5</ion-card-subtitle>
+        <ion-card-subtitle>MD5 Result</ion-card-subtitle>
       </ion-card-header>
 
       <ion-card-content>
         <ion-item>
           <ion-icon slot="start" src="assets/hash-generator/md5.svg"></ion-icon>
-          <ion-input type="string" [(ngModel)]="md5">
+          <ion-input type="string" placeholder="###…" [(ngModel)]="md5">
           </ion-input>
+          <ion-button shape="round" color="medium" fill="clear" slot="end" (click)="copyToClipboard('md5-card')" >
+            <ion-icon slot="icon-only" name="copy" class="ion-no-margin"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-card-content>
     </ion-card>
 
     <ion-card id="sha1-card">
       <ion-card-header>
-          <ion-card-subtitle>SHA-1</ion-card-subtitle>
+        <ion-card-subtitle>SHA-1 Result</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-item>
           <ion-icon slot="start" src="assets/hash-generator/sha1.svg"></ion-icon>
-          <ion-input type="string" [(ngModel)]="sha1">
+          <ion-input type="string" placeholder="###…" [(ngModel)]="sha1">
           </ion-input>
+          <ion-button shape="round" color="medium" fill="clear" slot="end" (click)="copyToClipboard('sha1-card')">
+            <ion-icon slot="icon-only" name="copy" class="ion-no-margin"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-card-content>
     </ion-card>
 
     <ion-card id="sha256-card">
       <ion-card-header>
-          <ion-card-subtitle>SHA-256</ion-card-subtitle>
+        <ion-card-subtitle>SHA-256 Result</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-item>
           <ion-icon slot="start" src="assets/hash-generator/sha256.svg"></ion-icon>
-          <ion-input type="string" [(ngModel)]="sha256">
+          <ion-input type="string" placeholder="###…" [(ngModel)]="sha256">
           </ion-input>
+          <ion-button shape="round" color="medium" fill="clear" slot="end" (click)="copyToClipboard('sha256-card')">
+            <ion-icon slot="icon-only" name="copy" class="ion-no-margin"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-card-content>
     </ion-card>
 
     <ion-card id="sha512-card">
       <ion-card-header>
-          <ion-card-subtitle>SHA-512</ion-card-subtitle>
+        <ion-card-subtitle>SHA-512 Result</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-item>
           <ion-icon slot="start" src="assets/hash-generator/sha512.svg"></ion-icon>
-          <ion-input type="string" [(ngModel)]="sha512">
+          <ion-input type="string" placeholder="###…" [(ngModel)]="sha512">
           </ion-input>
+          <ion-button shape="round" color="medium" fill="clear" slot="end" (click)="copyToClipboard('sha512-card')">
+            <ion-icon slot="icon-only" name="copy" class="ion-no-margin"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-card-content>
     </ion-card>
 
     <ion-card id="rmd160-card">
       <ion-card-header>
-          <ion-card-subtitle>RIPEMD-160</ion-card-subtitle>
+        <ion-card-subtitle>RIPEMD-160 Result</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-item>
           <ion-icon slot="start" src="assets/hash-generator/rmd.svg"></ion-icon>
-          <ion-input type="string" [(ngModel)]="rmd160">
+          <ion-input type="string" placeholder="###…" [(ngModel)]="rmd160">
           </ion-input>
+          <ion-button shape="round" color="medium" fill="clear" slot="end" (click)="copyToClipboard('rmd160-card')">
+            <ion-icon slot="icon-only" name="copy" class="ion-no-margin"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-card-content>
     </ion-card>

@@ -38,4 +38,11 @@ export class HashGeneratorPage implements OnInit {
     this.rmd160 = this._RMD160.hex(this.str);
   }
 
+  copyToClipboard(id : string) : void {
+    const input = <HTMLInputElement>document.querySelector(`#${id} ion-input input`);
+    input.select();
+    document.execCommand("copy");
+    // alert("Copied to clipboard: " + input.value);
+  }
+
 }

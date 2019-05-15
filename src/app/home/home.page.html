@@ -3,58 +3,80 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Home
+    <ion-title class="menubar-title">
+      <ion-icon class="coderbox-icon lighter" src="assets/icon/coderbox-part-lighter.svg"></ion-icon>
+      <ion-icon class="coderbox-icon darker" src="assets/icon/coderbox-part-darker.svg"></ion-icon>
+      CoderBox
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
+  <main>
+    <ion-card class="welcome-card" id="welcome-card">
+      <ion-img src="/assets/home/welcome.svg"></ion-img>
       <ion-card-header>
-        <ion-card-subtitle>CoderBox</ion-card-subtitle>
-        <ion-card-title>Welcome to CoderBox</ion-card-title>
+        <ion-card-subtitle>Day-to-Day Dev Toools</ion-card-subtitle>
+        <ion-card-title>CoderBox</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <p>
-          CoderBox is a Progressive Web App (PWA) designed by developers for developers. It contains commo DEVn tools needed for day to day coding environment.
+          CoderBox is a Progressive Web App (PWA) designed by developers for developers. It contains common dev tools needed for day to day coding environment.
         </p>
       </ion-card-content>
     </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Modules</ion-label>
-      </ion-list-header>
-      <ion-item href="/hash-generator">
-        <ion-icon slot="start" color="medium" name="code-working"></ion-icon>
-        <ion-label>Hash Generator</ion-label>
-      </ion-item>
-      <ion-item href="/epoch-time-converter">
-        <ion-icon slot="start" color="medium" name="alarm"></ion-icon>
-        <ion-label>Epoch Time Converter</ion-label>
-      </ion-item>
-      <ion-item href="/floating-point-converter">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Floating Point Converter</ion-label>
-      </ion-item>
-    </ion-list>
 
-    <ion-list lines="none">
+    <ion-card id="modules-card">
+      <ion-card-header>
+        <ion-card-subtitle>Modules</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item href="/hash-generator">
+          <ion-icon slot="start" color="medium" name="code-working"></ion-icon>
+          <ion-label>Hash Generator</ion-label>
+        </ion-item>
+        <ion-item href="/epoch-time-converter">
+          <ion-icon slot="start" color="medium" name="alarm"></ion-icon>
+          <ion-label>Epoch Time Converter</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="roadmap-card">
+      <ion-card-header>
+        <ion-card-subtitle>Coming Soon</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item href="/floating-point-converter">
+          <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+          <ion-label>Floating Point Converter</ion-label>
+        </ion-item>
+        <ion-item href="/character-encoding-converter">
+          <ion-icon slot="start" color="medium" name="funnel"></ion-icon>
+          <ion-label>Character Encoding Converter</ion-label>
+        </ion-item>
+        <ion-item href="/unicode-converter">
+          <ion-icon slot="start" color="medium" name="repeat"></ion-icon>
+          <ion-label>Unicode Converter</ion-label>
+        </ion-item>
+        <ion-item href="/base64-encoder-decoder">
+          <ion-icon slot="start" color="medium" name="barcode"></ion-icon>
+          <ion-label>Base64 Online Encoder/Decoder</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list lines="none" id="contribution">
       <ion-list-header>
-        <ion-label>Coming Soon</ion-label>
+        <ion-label>Contribution</ion-label>
       </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Character Encoding Converter</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Unicode Code Converter</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Base64 Online Encoder/Decoder</ion-label>
+      <ion-item>
+        <p>
+          CoderBox is an Open Source project. If you'd like to contribute, please visit: 
+          <ion-icon slot="start" color="medium" name="logo-github"></ion-icon>
+          <a href="https://github.com/chen-yumin/coderbox">https://github.com/chen-yumin/coderbox</a>
+        </p>
       </ion-item>
     </ion-list>
+  </main>
 </ion-content>
