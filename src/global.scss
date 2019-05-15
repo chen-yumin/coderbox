@@ -19,24 +19,5 @@
     .coderbox-icon {
         font-size: 25px;
         vertical-align: middle;
-
-        &.lighter {
-            color: #009E8C;
-            transition: color 0.3s;
-
-            &:hover {
-                color: #D6FADB;
-            }
-        }
-
-        &.darker {
-            color: #032722;
-            transition: color 0.3s;
-            margin-left: -25px;
-
-            &:hover {
-                color: #008F9F;
-            }
-        }
     }
 }
