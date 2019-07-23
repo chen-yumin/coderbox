@@ -32,7 +32,8 @@ export class EpochConverterPage implements OnInit {
             time: date.toString().split(' ')
               .slice(4).join(' ')
           };
-        }));
+        })
+      );
     this.epochTime = Math.round(new Date().getTime() / 1000.0);
     this.updateTime();
   }
@@ -40,21 +41,21 @@ export class EpochConverterPage implements OnInit {
   ngOnInit() {
   }
 
-  updateTime() : void {
-    const date = new Date(this.epochTime > 500000000000? this.epochTime * 1.0 :
+  updateTime(): void {
+    const date = new Date(this.epochTime > 500000000000 ? this.epochTime * 1.0 :
       this.epochTime * 1000);
     this.isoTimeString = date.toISOString();
     this.dateString = date.toString();
   }
 
-  onChangeIsoTime() : void {
-    this.epochTime = Math.round(new Date(this.isoTimeString).getTime()/1000.0);
+  onChangeIsoTime(): void {
+    this.epochTime = Math.round(new Date(this.isoTimeString).getTime() / 1000.0);
     this.updateTime();
   }
 
-  onChangeDateString() : void {
-    let time = Math.round(new Date(this.dateString).getTime()/1000.0);
-    this.epochTime = time? time: this.epochTime;
+  onChangeDateString(): void {
+    let time = Math.round(new Date(this.dateString).getTime() / 1000.0);
+    this.epochTime = time ? time : this.epochTime;
     this.updateTime()
   }
 }

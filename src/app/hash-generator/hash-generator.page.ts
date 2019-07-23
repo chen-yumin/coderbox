@@ -22,7 +22,7 @@ export class HashGeneratorPage implements OnInit {
   constructor() {
     this._MD5 = new Hashes.MD5;
     this._SHA1 = new Hashes.SHA1;
-    this._SHA256 =  new Hashes.SHA256;
+    this._SHA256 = new Hashes.SHA256;
     this._SHA512 = new Hashes.SHA512;
     this._RMD160 = new Hashes.RMD160;
   }
@@ -30,7 +30,7 @@ export class HashGeneratorPage implements OnInit {
   ngOnInit() {
   }
 
-  updateHash() : void {
+  updateHash(): void {
     this.md5 = this._MD5.hex(this.str);
     this.sha1 = this._SHA1.hex(this.str);
     this.sha256 = this._SHA256.hex(this.str);
@@ -38,11 +38,10 @@ export class HashGeneratorPage implements OnInit {
     this.rmd160 = this._RMD160.hex(this.str);
   }
 
-  copyToClipboard(id : string) : void {
+  copyToClipboard(id: string): void {
     const input = <HTMLInputElement>document.querySelector(`#${id} ion-input input`);
     input.select();
     document.execCommand("copy");
-    // alert("Copied to clipboard: " + input.value);
   }
 
 }
