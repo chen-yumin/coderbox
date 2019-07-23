@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-epoch-converter',
@@ -7,27 +8,32 @@ import { timer } from 'rxjs';
   styleUrls: ['./epoch-converter.page.scss'],
 })
 export class EpochConverterPage implements OnInit {
-  currentSeconds: number;
-  currentDateString: string;
-  currentTimeString: string;
   epochTime: number;
   isoTimeString: string;
   dateString: string;
+  currentTime$: Observable<{
+    seconds: number,
+    date: string,
+    time: string
+  }>;
 
   constructor() {
-    let timer$ = timer(0, 1000);
-    timer$.subscribe(t => {
-      let date = new Date();
-      this.currentSeconds = Math.round(date.getTime()/1000.0);
-      this.currentDateString = date.toLocaleDateString('en', {
-        "day": "numeric",
-        "month": "long",
-        "year": "numeric"
-      });
-      this.currentTimeString = date.toString().split(' ')
-        .slice(4).join(' ');
-    });
-    this.epochTime = Math.round(new Date().getTime()/1000.0);
+    this.currentTime$ = timer(0, 1000)
+      .pipe(
+        map(() => {
+          const date = new Date();
+          return {
+            seconds: Math.round(date.getTime() / 1000.0),
+            date: date.toLocaleDateString('en', {
+              "day": "numeric",
+              "month": "long",
+              "year": "numeric"
+            }),
+            time: date.toString().split(' ')
+              .slice(4).join(' ')
+          };
+        }));
+    this.epochTime = Math.round(new Date().getTime() / 1000.0);
     this.updateTime();
   }
 

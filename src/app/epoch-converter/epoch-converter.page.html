@@ -29,14 +29,14 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card id="epoch-clock-card">
+    <ion-card id="epoch-clock-card" *ngIf="currentTime$ | async as currentTime">
       <ion-card-header>
-        <ion-card-subtitle>Today, {{ currentDateString }}</ion-card-subtitle>
-        <ion-card-title>{{ currentTimeString }}</ion-card-title>
+        <ion-card-subtitle>Today, {{ currentTime.date }}</ion-card-subtitle>
+        <ion-card-title>{{ currentTime.time }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <div id="clock-seconds">
-          <p>{{ currentSeconds }}</p>
+          <p>{{ currentTime.seconds }}</p>
         </div>
         <p padding>
           seconds elapsed since January 1, 1970
