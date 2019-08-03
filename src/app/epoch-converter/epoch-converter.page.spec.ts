@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { SharedModule } from '../shared/shared.module';
 import { EpochConverterPage } from './epoch-converter.page';
 
 describe('EpochConverterPage', () => {
@@ -9,6 +10,7 @@ describe('EpochConverterPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ SharedModule ],
       declarations: [ EpochConverterPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })

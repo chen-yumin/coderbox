@@ -39,7 +39,7 @@
       <ion-card-content>
         <div id="clock-seconds">
           <p>
-            {{ switchMilliseconds ? currentTime.timestamp : (currentTime.timestamp / 1000 | number:'1.0-0') }}
+            {{ switchMilliseconds ? currentTime.timestamp : (currentTime.timestamp / 1000 | numberRound) }}
           </p>
         </div>
         <ion-item>
