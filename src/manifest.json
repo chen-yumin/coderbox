@@ -1,6 +1,7 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "CoderBox",
+  "short_name": "CoderBox",
+  "description": "CoderBox is a Progressive Web App (PWA) designed by developers for developers. It contains common dev tools needed for day to day coding environment.",
   "theme_color": "#4A9D8D",
   "background_color": "#fafafa",
   "display": "standalone",
