@@ -59,4 +59,14 @@ export class EpochConverterPage implements OnInit {
   onChangeDateString(value: string): void {
     this.updateTime(new Date(value));
   }
+
+  copyCurrentToClipboard(): void {
+    const text: string = document.querySelector(`#clock-seconds p`).innerHTML.trim();
+    const elem = document.createElement("input");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+  }
 }

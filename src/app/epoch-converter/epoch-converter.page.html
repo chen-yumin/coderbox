@@ -37,10 +37,13 @@
         <ion-card-title>{{ currentTime.time }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <div id="clock-seconds">
+        <div id="clock-seconds" [ngClass]="{'milliseconds': switchMilliseconds}">
           <p>
             {{ switchMilliseconds ? currentTime.timestamp : (currentTime.timestamp / 1000 | numberRound) }}
           </p>
+          <ion-button shape="round" fill="clear" (click)="copyCurrentToClipboard()" >
+            <ion-icon slot="icon-only" name="copy" class="ion-no-margin"></ion-icon>
+          </ion-button>
         </div>
         <ion-item>
           <ion-label text-right>Seconds</ion-label>
