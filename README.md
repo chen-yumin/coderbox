@@ -78,9 +78,13 @@ To deploy the [Node.js][nodejs] server application to [Google App Engine][gae], 
 
 Continuous Deployment (CD) with [CircleCI][circleci] is used to automate the deployment workflows. See [.circleci/config.yml](.circleci/config.yml) for detailed configuration.
 
+## Licensing
+
+This project is open source under the MIT License. Please see the file named [LICENSE.md](LICENSE.md) for more.
+
 ## Author
 
-* Chen Yumin
+* [Chen Yumin][chenyumin]
 
 ## Contact
 
