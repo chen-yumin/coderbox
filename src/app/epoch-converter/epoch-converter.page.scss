@@ -77,6 +77,14 @@ main {
                     user-select: auto;
                 }
             }
+
+            #clock-switch {
+                margin: 0 16px;
+                --background: var(--ion-color-light-shade);
+                --background-checked: var(--ion-color-light-shade);
+                --handle-background: var(--ion-color-primary);
+                --handle-background-checked: var(--ion-color-secondary);
+            }
         }
     }
 

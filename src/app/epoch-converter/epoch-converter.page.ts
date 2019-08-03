@@ -8,11 +8,12 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./epoch-converter.page.scss'],
 })
 export class EpochConverterPage implements OnInit {
-  epochTime: number;
+  timestampInSeconds: number;
+  timestampInMilliseconds: number;
   isoTimeString: string;
   dateString: string;
   currentTime$: Observable<{
-    seconds: number,
+    timestamp: number,
     date: string,
     time: string
   }>;
@@ -23,39 +24,39 @@ export class EpochConverterPage implements OnInit {
         map(() => {
           const date = new Date();
           return {
-            seconds: Math.round(date.getTime() / 1000.0),
+            timestamp: date.getTime(),
             date: date.toLocaleDateString('en', {
               "day": "numeric",
               "month": "long",
               "year": "numeric"
             }),
-            time: date.toString().split(' ')
-              .slice(4).join(' ')
+            time: date.toString().split(' ').slice(4).join(' ')
           };
         })
       );
-    this.epochTime = Math.round(new Date().getTime() / 1000.0);
-    this.updateTime();
   }
 
   ngOnInit() {
+    this.updateTime(new Date());
   }
 
-  updateTime(): void {
-    const date = new Date(this.epochTime > 500000000000 ? this.epochTime * 1.0 :
-      this.epochTime * 1000);
-    this.isoTimeString = date.toISOString();
-    this.dateString = date.toString();
+  updateTime(datetime: Date): void {
+    if (!datetime || isNaN(datetime.getTime())) return;
+    this.timestampInMilliseconds = datetime.getTime();
+    this.timestampInSeconds = Math.round(this.timestampInMilliseconds / 1000.0);
+    this.isoTimeString = datetime.toISOString();
+    this.dateString = datetime.toString();
   }
 
-  onChangeIsoTime(): void {
-    this.epochTime = Math.round(new Date(this.isoTimeString).getTime() / 1000.0);
-    this.updateTime();
+  onInputTime(value: number): void {
+    this.updateTime(new Date(Number(value)));
   }
 
-  onChangeDateString(): void {
-    let time = Math.round(new Date(this.dateString).getTime() / 1000.0);
-    this.epochTime = time ? time : this.epochTime;
-    this.updateTime()
+  onChangeIsoTime(value: string): void {
+    this.updateTime(new Date(value));
+  }
+
+  onChangeDateString(value: string): void {
+    this.updateTime(new Date(value));
   }
 }

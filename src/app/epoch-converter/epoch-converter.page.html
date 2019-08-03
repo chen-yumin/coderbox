@@ -21,10 +21,12 @@
       </ion-card-header>
       <ion-card-content>
         <p>
-          The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds.
+          The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since
+          January 1, 1970 (midnight UTC/GMT), not counting leap seconds.
         </p>
         <p>
-          This Epoch Converter tool helps you to conveniently convert between epoch timestamp seconds and human readable time. Type in the timestamp on the cards and the corresponding time will be converted.
+          This Epoch Converter tool helps you to conveniently convert between epoch timestamp seconds and human readable
+          time. Type in the timestamp on the cards and the corresponding time will be converted.
         </p>
       </ion-card-content>
     </ion-card>
@@ -36,10 +38,18 @@
       </ion-card-header>
       <ion-card-content>
         <div id="clock-seconds">
-          <p>{{ currentTime.seconds }}</p>
+          <p>
+            {{ switchMilliseconds ? currentTime.timestamp : (currentTime.timestamp / 1000 | number:'1.0-0') }}
+          </p>
         </div>
-        <p padding>
-          seconds elapsed since January 1, 1970
+        <ion-item>
+          <ion-label text-right>Seconds</ion-label>
+          <ion-toggle id="clock-switch" [(ngModel)]="switchMilliseconds">
+          </ion-toggle>
+          <ion-label>Milliseconds</ion-label>
+        </ion-item>
+        <p padding text-right>
+          elapsed since January 1, 1970
         </p>
       </ion-card-content>
     </ion-card>
@@ -51,13 +61,21 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="hourglass" item-start></ion-icon>
-          <ion-input type="number" [(ngModel)]="epochTime"
-            (input)='updateTime()'>
+          <ion-input type="number" [(ngModel)]="timestampInSeconds"
+            (ionInput)='onInputTime($event.target.value * 1000)'>
           </ion-input>
+          <p padding text-right>
+            seconds
+          </p>
         </ion-item>
-        <p padding text-right>
-          {{ epochTime > 500000000000? 'miliseconds' : 'seconds' }}
-        </p>
+        <ion-item>
+          <ion-icon name="hourglass" item-start></ion-icon>
+          <ion-input type="number" [(ngModel)]="timestampInMilliseconds" (ionInput)='onInputTime($event.target.value)'>
+          </ion-input>
+          <p padding text-right>
+            miliseconds
+          </p>
+        </ion-item>
       </ion-card-content>
     </ion-card>
 
@@ -68,15 +86,14 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="calendar" item-start></ion-icon>
-          <ion-datetime displayFormat="DDDD MMMM D, YYYY"
-            pickerFormat="MMMM D, YYYY" min="1900" max="2100"
-            [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
+          <ion-datetime displayFormat="DDDD MMMM D, YYYY" pickerFormat="MMMM D, YYYY" min="1900" max="2100"
+            [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime($event.target.value)'>
           </ion-datetime>
         </ion-item>
         <ion-item>
           <ion-icon name="time" item-start></ion-icon>
-          <ion-datetime displayFormat="HH:mm:ss"
-            [(ngModel)]="isoTimeString" (ionChange)='onChangeIsoTime()'>
+          <ion-datetime displayFormat="HH:mm:ss" [(ngModel)]="isoTimeString"
+            (ionChange)='onChangeIsoTime($event.target.value)'>
           </ion-datetime>
         </ion-item>
       </ion-card-content>
@@ -89,8 +106,7 @@
       <ion-card-content>
         <ion-item>
           <ion-icon name="timer" item-start></ion-icon>
-          <ion-textarea type="string" [(ngModel)]="dateString"
-            (change)='onChangeDateString()'>
+          <ion-textarea type="string" [(ngModel)]="dateString" (change)='onChangeDateString($event.target.value)'>
           </ion-textarea>
         </ion-item>
       </ion-card-content>
