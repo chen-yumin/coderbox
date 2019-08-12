@@ -1,0 +1,22 @@
+<mat-toolbar class="mat-elevation-z6"
+             *ngIf="sidenavService.sidenav$ | async as sidenav">
+
+  <button mat-icon-button class="menu-button"
+          aria-label="menu" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="title">
+    <a mat-button class="coderbox-button" routerLink="/" aria-label="CoderBox">
+      <mat-icon class="coderbox-logo" svgIcon="coderbox"></mat-icon>
+      <span>CoderBox</span>
+    </a>
+  </div>
+
+  <a mat-icon-button class="github-button"
+     href="https://github.com/chen-yumin/coderbox"
+     aria-label="GitHub Repository">
+    <mat-icon svgIcon="github"></mat-icon>
+  </a>
+
+</mat-toolbar>

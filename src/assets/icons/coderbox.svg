@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="stroke: none" id="s">
+<style>
+  .d{fill:#1F4E54;transition: fill 0.3s;}
+  .l{fill:#009E8C;transition: fill 0.3s;}
+  #s:hover .d{fill:#008F9F;}
+  #s:hover .l{fill:#00C9AB;}
+  .dark-theme .d{fill:#159897;}
+  .dark-theme .l{fill:#7ACBB3;}
+  .dark-theme #s:hover .d{fill:#44ADAC;}
+  .dark-theme #s:hover .l{fill:#A2DBCA;}
+</style>
+  <path class="d" d="M8 0L4.5 2l7 4 3.4-2z"/>
+  <path class="l" d="M11.4 6v3.3l3.5-2V4z"/>
+  <path class="d" d="M4.5 6L1 4v8l3.6 2v-4z"/>
+  <path class="l" d="M7.4 4.3L4 2.3 1 4l3.5 2z"/>
+  <path class="d" d="M8 12v4l7-4V8l-6.2 3.5z"/>
+  <path class="l" d="M5 10.3v4L8 16v-4z"/>
+</svg>

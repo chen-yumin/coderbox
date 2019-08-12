@@ -1,0 +1,30 @@
+mat-sidenav-container {
+
+  mat-sidenav {
+    width: 256px;
+
+    .sidenav-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+
+      mat-nav-list {
+        a[mat-list-item] {
+          mat-icon {
+            margin-right: 16px;
+          }
+        }
+      }
+
+      mat-list.theme-switcher {
+        margin-top: auto;
+
+      }
+    }
+  }
+
+  mat-sidenav-content {
+    height: 100vh;
+  }
+}
