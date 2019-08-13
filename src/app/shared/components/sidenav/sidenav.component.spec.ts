@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from '../../../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -11,14 +12,14 @@ describe('SidenavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidenavComponent ],
+      declarations: [SidenavComponent],
       imports: [
         AppRoutingModule,
         BrowserAnimationsModule,
         MatSidenavModule
-      ]
-    })
-    .compileComponents();
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

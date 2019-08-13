@@ -1,0 +1,14 @@
+main {
+  padding: 8px;
+
+  mat-card {
+    margin: 16px;
+
+    &#welcome-card {
+      img {
+        object-fit: cover;
+        height: 192px;
+      }
+    }
+  }
+}
