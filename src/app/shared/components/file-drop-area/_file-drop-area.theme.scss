@@ -1,0 +1,24 @@
+@mixin file-drop-area-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  app-file-drop-area {
+
+    border: 2px dashed mat-color($foreground, divider);
+    transition: all 0.3s;
+
+    &:hover {
+      border: 2px solid mat-color($foreground, divider);
+      background-color: rgba(mat-color($foreground, divider), 0.05);
+    }
+
+    &.dragover {
+      border: 2px solid rgba(mat-color($primary, 500), 0.8) !important;
+      background-color: rgba(mat-color($primary, 500), 0.2) !important;
+    }
+
+  }
+}

@@ -9,6 +9,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'hash-generator',
+    loadChildren: './pages/hash-generator/hash-generator.module#HashGeneratorModule'
+  },
+  {
     path: '**',
     redirectTo: ''
   }

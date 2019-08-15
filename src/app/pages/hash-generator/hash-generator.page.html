@@ -1,0 +1,86 @@
+<main>
+  <mat-card class="welcome-card">
+    <img mat-card-image src="assets/hash-generator/welcome.svg" width="350" height="140">
+    <mat-card-header>
+      <mat-card-title>Hash Generator</mat-card-title>
+      <mat-card-subtitle>Generate Hash Codes</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Hash Generator is a simple tool to create cryptographic hash codes from a custom texual message input or a user
+        selected file. It supports most used comman hash algorithms, such as SHA-1, SHA-256, SHA-384, SHA-512.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="input-card">
+    <mat-card-header>
+      <mat-card-title>Input Data</mat-card-title>
+      <mat-card-subtitle>Enter Texual Message or a File</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-tab-group #tabGroup>
+        <mat-tab label="Text">
+          <mat-form-field appearance="outline">
+            <mat-label>Textual Input</mat-label>
+            <textarea matInput id="text-input" #input cdkTextareaAutosize cdkAutosizeMinRows=3 cdkAutosizeMaxRows=10
+              placeholder="Enter Textual Message" type="text" (input)='onInputMessage($event)'></textarea>
+            <mat-hint align="end">Length: {{input.value?.length || 0}} characters</mat-hint>
+          </mat-form-field>
+        </mat-tab>
+
+        <mat-tab label="File">
+          <app-file-drop-area (onFile)="onInputFile($event)">
+            <mat-icon svgIcon="file"></mat-icon>
+            <span>Drop or Select a File</span>
+          </app-file-drop-area>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-footer>
+      <mat-expansion-panel class="mat-elevation-z0">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Advanced Configuration
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <section>
+          <label>Algorithm:</label>
+          <div class="flex-wrapper">
+            <mat-checkbox class="config-item" *ngFor="let hash of hashes" [(ngModel)]="hash.enabled"
+              (change)="onConfigAlgoChange($event, hash)">{{ hash.algo }}</mat-checkbox>
+          </div>
+        </section>
+
+        <section>
+          <label>Digest Representation:</label>
+          <mat-radio-group class="flex-wrapper" [(ngModel)]="representation">
+            <mat-radio-button class="config-item" *ngFor="let rep of outputReps; let i = index" [value]="i + 1"
+              (change)="onConfigRepChange($event)">{{ rep }}</mat-radio-button>
+          </mat-radio-group>
+        </section>
+      </mat-expansion-panel>
+    </mat-card-footer>
+  </mat-card>
+
+  <div class="output-container">
+    <ng-container *ngFor="let hash of hashes">
+      <mat-card class="hash-output-card" *ngIf="hash.enabled">
+        <mat-card-content>
+          <mat-form-field>
+            <textarea matInput id="{{ hash.algo | lowercase }}-input" readonly cdkTextareaAutosize
+              placeholder="{{ hash.algo }} Hash Digest" [(ngModel)]="hash.digestRep"></textarea>
+            <button matSuffix mat-icon-button aria-label="Copy" matTooltip="Copy" (click)="copyToClipboard(hash.algo)">
+              <mat-icon svgIcon="copy"></mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </div>
+</main>

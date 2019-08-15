@@ -1,0 +1,109 @@
+main {
+  padding: 8px;
+
+  &>mat-card {
+    margin: 16px;
+  }
+
+  .welcome-card {
+    img {
+      object-fit: cover;
+      height: 192px;
+    }
+
+    mat-card-content {
+      p {
+        margin: 0 16px 16px;
+      }
+    }
+  }
+
+  .input-card {
+    transition: height 2s;
+
+    mat-tab-group {
+      mat-form-field {
+        margin-top: 16px;
+        width: 100%;
+      }
+
+      app-file-drop-area {
+        margin-top: 16px;
+        height: 103px;
+
+        mat-icon {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    mat-card-footer {
+      section {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        margin: 8px 0;
+      }
+
+      .flex-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+      }
+
+      .config-item {
+        margin: 4px 12px;
+      }
+    }
+  }
+
+  .output-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    margin: -8px 8px 8px 8px;
+
+    .hash-output-card {
+      margin: 8px;
+
+      mat-form-field {
+        width: 100%;
+
+        .mat-form-field-flex {
+          align-items: center;
+        }
+
+        button[matSuffix] {
+          margin: 0 8px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 600px) {
+  main {
+    .input-card {
+      mat-card-footer {
+        .flex-wrapper {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  main {
+    .input-card {
+      mat-card-footer {
+        section {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

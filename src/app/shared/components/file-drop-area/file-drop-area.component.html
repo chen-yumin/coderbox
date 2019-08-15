@@ -1,0 +1,4 @@
+<div matRipple class="upload-file-container" (click)="fileInput.click()">
+  <input hidden type="file" #fileInput (change)="onFile.emit($event.target.files)">
+  <ng-content></ng-content>
+</div>
