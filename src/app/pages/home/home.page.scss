@@ -10,5 +10,17 @@ main {
         height: 192px;
       }
     }
+
+    mat-card-content {
+      p {
+        margin: 0 16px 16px;
+      }
+    }
+
+    mat-card-actions {
+      mat-icon {
+        margin-right: 4px;
+      }
+    }
   }
 }

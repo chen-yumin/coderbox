@@ -1,5 +1,6 @@
 @import '~@angular/material/theming';
 
+@import './app/shared/components/navbar/navbar.theme';
 @import './app/shared/components/sidenav/sidenav.theme';
 @import './app/shared/components/file-drop-area/file-drop-area.theme';
 @import './app/shared/components/circle-clock/circle-clock.theme';
@@ -7,6 +8,17 @@
 
 
 @mixin coderbox-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  mat-icon {
+    color: mat-color($foreground, icon);
+  }
+
+  @include navbar-theme($theme);
   @include sidenav-theme($theme);
   @include file-drop-area-theme($theme);
   @include circle-clock-theme($theme);

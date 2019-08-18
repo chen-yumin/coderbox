@@ -6,7 +6,6 @@
   $foreground: map-get($theme, foreground);
 
   app-file-drop-area {
-
     border: 2px dashed mat-color($foreground, divider);
     transition: all 0.3s;
 
@@ -16,8 +15,8 @@
     }
 
     &.dragover {
-      border: 2px solid rgba(mat-color($primary, 500), 0.8) !important;
-      background-color: rgba(mat-color($primary, 500), 0.2) !important;
+      border: 2px solid rgba(mat-color($primary, 500), 0.8);
+      background-color: rgba(mat-color($primary, 500), 0.2);
     }
 
   }

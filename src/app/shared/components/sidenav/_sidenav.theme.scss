@@ -5,20 +5,17 @@
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  mat-sidenav-container {  
+  mat-sidenav-container {
     mat-sidenav {
       mat-nav-list {
         a[mat-list-item] {
           border-bottom: 1px solid mat-color($foreground, divider);
-  
-          mat-icon {
-            color: mat-color($foreground, icon);
-          }
         }
       }
     }
+
     mat-sidenav-content {
       background: mat-color($background, background);
     }
-  }  
+  }
 }
