@@ -1,0 +1,4 @@
+<div class="secondHand" #secondHand matTooltip="Tap to Copy" matTooltipPosition="after"></div>
+<p #content>
+  {{ unit == 'milliseconds' ? timestamp : round(timestamp / 1000) }}
+</p>

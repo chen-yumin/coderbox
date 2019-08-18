@@ -1,0 +1,52 @@
+:host {
+  position: relative;
+  display: block;
+  border: 3px solid gray;
+  border-radius: 50%;
+  box-sizing: border-box;
+  width: 160px;
+  height: 160px;
+  text-align: center;
+  transition: all 0.2s;
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+    border: 6px solid darken(gray, 20%);
+    background: gray;
+    transition: all 0.2s;
+
+    p {
+      color: white;
+    }
+
+    .secondHand {
+      opacity: 0;
+    }
+  }
+}
+
+.secondHand {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 12px;
+    border-radius: 8px;
+    background: gray;
+  }
+}
+
+p {
+  display: inline-block;
+  margin-top: 50%;
+  line-height: 0;
+  user-select: auto;
+}

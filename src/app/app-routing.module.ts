@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: './pages/hash-generator/hash-generator.module#HashGeneratorModule'
   },
   {
+    path: 'epoch-converter',
+    loadChildren: './pages/epoch-converter/epoch-converter.module#EpochConverterModule'
+  },
+  {
     path: '**',
     redirectTo: ''
   }

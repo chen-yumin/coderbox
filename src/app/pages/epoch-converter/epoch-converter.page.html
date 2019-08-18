@@ -1,0 +1,124 @@
+<main id="epoch-converter">
+  <mat-card class="welcome-card">
+    <img mat-card-image src="assets/epoch-converter/welcome.svg" width="350" height="140">
+    <mat-card-header>
+      <mat-card-title>Epoch Time Converter</mat-card-title>
+      <mat-card-subtitle>Convert Unix Timestamps</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since
+        January 1, 1970 (midnight UTC/GMT), not counting leap seconds.
+      </p>
+      <p>
+        This Epoch Converter tool helps you to conveniently convert between epoch timestamp seconds and human readable
+        time. Type in the timestamp on the cards and the corresponding time will be converted.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="container">
+    <mat-card class="epoch-clock-card" *ngIf="(now$ | async) as now">
+      <mat-card-header>
+        <mat-card-title>Today, {{ now | date:'longDate' }}</mat-card-title>
+        <mat-card-subtitle>{{ now.toTimeString() }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <app-circle-clock [timestamp]="now.getTime()" [unit]="toggleMilliseconds ? 'milliseconds' : 'seconds'">
+        </app-circle-clock>
+        <section class="clock-toggle-section">
+          <label>Seconds</label>
+          <mat-slide-toggle [(ngModel)]="toggleMilliseconds">
+          </mat-slide-toggle>
+          <label>Milliseconds</label>
+        </section>
+        <mat-divider></mat-divider>
+        <p>elapsed since January 1, 1970</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="epoch-time-card input-card">
+      <mat-card-header>
+        <mat-card-subtitle>From Epoch Timestamp</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-form-field appearance="outline">
+              <mat-label>Unix Timestamp</mat-label>
+              <mat-icon matPrefix svgIcon="hourglass"></mat-icon>
+              <input matInput type="number" placeholder="Enter Epoch Timestamp" autocomplete="off"
+                [formControl]="epochInputCtrl">
+              <label matSuffix>{{ isSeconds(epochInputCtrl.value) ? 'seconds' : 'milliseconds' }}</label>
+              <mat-hint align="end">{{ epochInputDate.getTime() | relativeTime:(now$ | async)?.getTime() }}</mat-hint>
+              <mat-error>{{ getErrorMessage(epochInputCtrl) }}</mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          <h3 mat-subheader>Conversion Output</h3>
+          <mat-list-item>
+            <mat-form-field>
+              <mat-icon matPrefix svgIcon="time"></mat-icon>
+              <textarea matInput readonly type="text" matInput cdkTextareaAutosize placeholder="Datetime String"
+                [value]="epochInputDate.toString()" #dateStringOutput></textarea>
+              <button matSuffix mat-icon-button aria-label="Copy" matTooltip="Copy"
+                (click)="copyToClipboard(dateStringOutput)">
+                <mat-icon svgIcon="copy"></mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-form-field>
+              <mat-icon matPrefix svgIcon="locale-time"></mat-icon>
+              <textarea matInput readonly type="text" matInput cdkTextareaAutosize placeholder="Locale Datetime String"
+                [value]="epochInputDate.toLocaleString()" #localeStringOutput></textarea>
+              <button matSuffix mat-icon-button aria-label="Copy" matTooltip="Copy" (click)="copyToClipboard(localeStringOutput)">
+                <mat-icon svgIcon="copy"></mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-form-field>
+              <mat-icon matPrefix svgIcon="iso"></mat-icon>
+              <textarea matInput readonly type="text" matInput cdkTextareaAutosize placeholder="ISO 8601 Time Format"
+                [value]="epochInputDate.toISOString()" #ISOStringOutput></textarea>
+              <button matSuffix mat-icon-button aria-label="Copy" matTooltip="Copy" (click)="copyToClipboard(ISOStringOutput)">
+                <mat-icon svgIcon="copy"></mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="datetime-string-card input-card">
+      <mat-card-header>
+        <mat-card-subtitle>From Datetime String</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-form-field appearance="outline">
+              <mat-label>Datetime String</mat-label>
+              <mat-icon matPrefix svgIcon="time"></mat-icon>
+              <input matInput type="text" placeholder="Enter a Datetime String" [formControl]="stringInputCtrl"
+                autocomplete="off">
+              <mat-hint align="end">Any time format is supported</mat-hint>
+              <mat-error>{{ getErrorMessage(stringInputCtrl) }}</mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          <h3 mat-subheader>Conversion Output</h3>
+          <mat-list-item>
+            <mat-form-field>
+              <mat-icon matPrefix svgIcon="hourglass"></mat-icon>
+              <textarea matInput readonly type="text" matInput cdkTextareaAutosize placeholder="Unix Timestamp"
+                [value]="stringInputDate.getTime()" #timestampOutput></textarea>
+              <button matSuffix mat-icon-button aria-label="Copy" matTooltip="Copy" (click)="copyToClipboard(timestampOutput)">
+                <mat-icon svgIcon="copy"></mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</main>

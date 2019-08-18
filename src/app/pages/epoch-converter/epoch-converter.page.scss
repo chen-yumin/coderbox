@@ -1,0 +1,101 @@
+main {
+  padding: 8px;
+
+  &>mat-card {
+    margin: 16px;
+  }
+
+  .welcome-card {
+    img {
+      object-fit: cover;
+      height: 192px;
+    }
+
+    mat-card-content {
+      p {
+        margin: 0 16px 16px;
+      }
+    }
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    margin: -8px 8px 0;
+
+    &>mat-card {
+      margin: 8px;
+    }
+  }
+
+  .epoch-clock-card {
+    app-circle-clock {
+      width: 160px;
+      height: 160px;
+      margin: 8px auto;
+    }
+
+    .clock-toggle-section {
+      width: 100%;
+      text-align: center;
+      display: block;
+      white-space: nowrap;
+      margin: 16px 0;
+
+      label {
+        display: inline-block;
+        width: 96px;
+
+        &:first-child {
+          text-align: right;
+        }
+
+        &:last-child {
+          text-align: left;
+        }
+      }
+
+      mat-slide-toggle {
+        margin: 0 16px;
+      }
+    }
+
+    mat-divider {
+      width: 80%;
+      left: 10%;
+    }
+
+    p {
+      padding-top: 16px;
+      text-align: right;
+    }
+  }
+
+  .input-card {
+    mat-list-item {
+      height: auto;
+    }
+    mat-form-field {
+      width: 100%;
+      font-size: 14px;
+
+      mat-icon[matPrefix] {
+        font-size: 24px;
+        margin: 0 16px;
+      }
+
+      button[matSuffix] {
+        margin: 0 8px;
+        font-size: 24px;
+      }
+    
+      &[appearance="outline"] {
+        mat-icon[matPrefix] {
+          margin: 0 16px 0 6px;
+        }
+      }
+    }
+
+  }
+
+}
