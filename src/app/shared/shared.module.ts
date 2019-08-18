@@ -1,5 +1,5 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, ModuleWithProviders, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
@@ -55,6 +55,19 @@ const ANGULAR_MATERIAL_MODULES = [
   MatTooltipModule,
   MatIconModule
 ];
+const SVG_ICONS = [
+  { iconName: "coderbox",         fileName: "coderbox.svg" },
+  { iconName: "github",           fileName: "github.svg" },
+  { iconName: "hash-generator",   fileName: "hash-generator.svg" },
+  { iconName: "epoch-converter",  fileName: "epoch-converter.svg" },
+  { iconName: "copy",             fileName: "copy.svg" },
+  { iconName: "file",             fileName: "file.svg" },
+  { iconName: "time",             fileName: "time.svg" },
+  { iconName: "calendar",         fileName: "calendar.svg" },
+  { iconName: "hourglass",        fileName: "hourglass.svg" },
+  { iconName: "locale-time",      fileName: "locale-time.svg" },
+  { iconName: "iso",              fileName: "iso.svg" }
+];
 
 @NgModule({
   declarations: [
@@ -86,53 +99,21 @@ export class SharedModule {
 
   constructor(
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    @Inject(DOCUMENT) private _document: Document
   ) {
-    this.matIconRegistry.addSvgIcon(
-      'coderbox',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/coderbox.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'github',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/github.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'hash-generator',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/hash-generator.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'epoch-converter',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/epoch-converter.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'copy',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/copy.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'file',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/file.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'time',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/time.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'calendar',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/calendar.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'hourglass',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/hourglass.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'locale-time',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/locale-time.svg')
-    );
-    this.matIconRegistry.addSvgIcon(
-      'iso',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/iso.svg')
-    );
-    
+    const origin = this._document.location.origin;
+    const registerIcon = ((iconName: string, fileName: string) => {
+      this.matIconRegistry.addSvgIcon(
+        iconName,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(
+          `${origin}/assets/icons/${fileName}`
+        )
+      );
+    });
+    SVG_ICONS.forEach((icon) => {
+      registerIcon(icon.iconName, icon.fileName);
+    });
   }
 
   static forRoot(): ModuleWithProviders {

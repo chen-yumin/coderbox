@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, Renderer2, OnInit, AfterViewInit, ViewChild, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { SidenavService } from './sidenav.service';
 import { BreakpointService } from '../../services/breakpoint/breakpoint.service';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -13,11 +14,14 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class SidenavComponent implements OnInit, AfterViewInit {
 
   @ViewChild('sidenav', { static: false }) public sidenav: MatSidenav;
+  private _theme: string;
 
   constructor(
-    private sidenavService: SidenavService,
-    private bp: BreakpointService,
-    private overlayContainer: OverlayContainer
+    public sidenavService: SidenavService,
+    public bp: BreakpointService,
+    private _overlayContainer: OverlayContainer,
+    private _renderer: Renderer2,
+    @Inject(DOCUMENT) private _document: Document
   ) {
   }
 
@@ -34,18 +38,13 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   }
 
   setTheme(theme: string) {
-    this.setThemeForClassList(document.documentElement.classList, theme);
-    this.setThemeForClassList(this.overlayContainer.getContainerElement()
-      .classList, theme);
-  }
-
-  private setThemeForClassList(classList: DOMTokenList, theme: string) {
-    const themeClasses = Array.from(classList)
-      .filter((item: string) => item.includes('-theme'));
-    if (themeClasses.length > 0) {
-      classList.remove(...themeClasses);
+    if (this._theme) {
+      this._renderer.removeClass(this._document.body, this._theme);
+      this._renderer.removeClass(this._overlayContainer.getContainerElement(), this._theme);
     }
-    classList.add(theme);
+    this._theme = theme;
+    this._renderer.addClass(this._document.body, theme);
+    this._renderer.addClass(this._overlayContainer.getContainerElement(), theme);
   }
 
 }

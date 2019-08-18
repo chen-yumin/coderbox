@@ -11,6 +11,7 @@ import { DateValidator } from '../../shared/validators/date.validator';
 })
 export class EpochConverterPage implements OnInit, OnDestroy {
   readonly MILLISECOND_CUTOFF: number = 100000000000;
+  millisecondsToggleCtrl: FormControl;
   epochInputCtrl: FormControl;
   stringInputCtrl: FormControl;
   epochInputDate: Date;
@@ -22,6 +23,7 @@ export class EpochConverterPage implements OnInit, OnDestroy {
     const date = new Date();
     this.epochInputDate = date;
     this.stringInputDate = date;
+    this.millisecondsToggleCtrl = new FormControl();
     this.epochInputCtrl = new FormControl(
       date.getTime(), [
         Validators.required,

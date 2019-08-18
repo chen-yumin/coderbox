@@ -24,11 +24,11 @@
         <mat-card-subtitle>{{ now.toTimeString() }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <app-circle-clock [timestamp]="now.getTime()" [unit]="toggleMilliseconds ? 'milliseconds' : 'seconds'">
+        <app-circle-clock [timestamp]="now.getTime()" [unit]="millisecondsToggleCtrl.value ? 'milliseconds' : 'seconds'">
         </app-circle-clock>
         <section class="clock-toggle-section">
           <label>Seconds</label>
-          <mat-slide-toggle [(ngModel)]="toggleMilliseconds">
+          <mat-slide-toggle [formControl]="millisecondsToggleCtrl">
           </mat-slide-toggle>
           <label>Milliseconds</label>
         </section>
