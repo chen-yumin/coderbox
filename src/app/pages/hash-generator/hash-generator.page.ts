@@ -115,10 +115,4 @@ export class HashGeneratorPage implements OnInit {
     }
   }
 
-  copyToClipboard(hashAlgo: string): void {
-    const input = <HTMLInputElement>document.querySelector(`#${hashAlgo.toLowerCase()}-input`);
-    input.select();
-    document.execCommand("copy");
-  }
-
 }

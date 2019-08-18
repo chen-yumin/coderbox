@@ -31,6 +31,7 @@ import { SidenavService } from './components/sidenav/sidenav.service';
 import { BreakpointService } from './services/breakpoint/breakpoint.service';
 import { FileDropAreaComponent } from './components/file-drop-area/file-drop-area.component';
 import { CircleClockComponent } from './components/circle-clock/circle-clock.component';
+import { InputCopyButtonComponent } from './components/input-copy-button/input-copy-button.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 
 const ANGULAR_MATERIAL_MODULES = [
@@ -61,6 +62,7 @@ const ANGULAR_MATERIAL_MODULES = [
     SidenavComponent,
     FileDropAreaComponent,
     CircleClockComponent,
+    InputCopyButtonComponent,
     RelativeTimePipe
   ],
   imports: [
@@ -75,6 +77,7 @@ const ANGULAR_MATERIAL_MODULES = [
     SidenavComponent,
     FileDropAreaComponent,
     CircleClockComponent,
+    InputCopyButtonComponent,
     RelativeTimePipe,
     ...ANGULAR_MATERIAL_MODULES
   ]

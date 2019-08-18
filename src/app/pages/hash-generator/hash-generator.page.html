@@ -73,11 +73,9 @@
       <mat-card class="hash-output-card" *ngIf="hash.enabled">
         <mat-card-content>
           <mat-form-field>
-            <textarea matInput id="{{ hash.algo | lowercase }}-input" readonly cdkTextareaAutosize
-              placeholder="{{ hash.algo }} Hash Digest" [(ngModel)]="hash.digestRep"></textarea>
-            <button matSuffix mat-icon-button aria-label="Copy" matTooltip="Copy" (click)="copyToClipboard(hash.algo)">
-              <mat-icon svgIcon="copy"></mat-icon>
-            </button>
+            <textarea matInput readonly cdkTextareaAutosize placeholder="{{ hash.algo }} Hash Digest"
+              [(ngModel)]="hash.digestRep"></textarea>
+            <app-input-copy-button matSuffix></app-input-copy-button>
           </mat-form-field>
         </mat-card-content>
       </mat-card>
