@@ -1,27 +1,80 @@
 # Coderbox
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
+[![CircleCI Build Status][circleci-coderbox-svg]][circleci-coderbox]
 
-## Development server
+<p align="center">
+  <a href="https://coderbox.app">
+    <img src="https://coderbox.app/assets/icons/coderbox.svg" width=72 height=72>
+  </a>
+  <a href="https://coderbox.app"><h3 align="center">CoderBox</h3></a>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Content
 
-## Code scaffolding
+* [Introduction](#introduction)
+* [Setup](#setup)
+* [Running locally](#running-locally)
+* [Building for production](#building-for-production)
+* [Testing](#testing)
+* [Deploying](#deploying)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Introduction
 
-## Build
+[CoderBox][coderbox] is a set of common dev tools made by developers for developers. It is free and open source. This application is built using [Angular][angular] (with [Angular Material][angular-material] UI framework).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Setup
 
-## Running unit tests
+Before you can run this application, you need to install [Node.js][nodejs].
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To install the project’s dependencies, run
 
-## Running end-to-end tests
+    npm install
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Running locally
 
-## Further help
+To run this application locally:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    npm run serve:local
+
+This will start a local dev server on port 4200. Open [http://localhost:4200/](http://localhost:4200/) to view this app in the browser. The app will automatically reload if you change any of the source files.
+
+## Building for production
+
+If you want to build this project for production, run:
+
+    npm run build:ssr
+
+This app uses [Angular Universal][angular-universal] to build the app for Server-Side Rendering (SSR), and it renders the app on the [Express][express] server.
+
+To run this app with Angular Universal SSR on your local system, use the following command.
+
+    npm run serve:ssr
+
+Open a browser and navigate to [http://localhost:4000/](http://localhost:4000/) to view the app.
+
+## Testing
+
+Run `npm run test` to execute the unit tests via [Karma][karma].
+
+Run `npm run e2e` to execute the end-to-end tests via [Protractor][protractor].
+
+## Licensing
+
+This project is open source under MIT License. Please see the file named [LICENSE.md](LICENSE.md) for more.
+
+## Author
+
+* [Chen Yumin][chenyumin]
+
+[coderbox]: https://coderbox.app/
+[chenyumin]: https://chenyumin.com/
+[nodejs]: https://nodejs.org/
+[angular]: https://angular.io/
+[angular-material]: https://material.angular.io/
+[angular-universal]: https://angular.io/guide/universal
+[karma]: https://karma-runner.github.io/
+[protractor]: http://www.protractortest.org/
+[express]: https://expressjs.com/
+[circleci]: http://circleci.com/
+[circleci-coderbox]: https://circleci.com/gh/chen-yumin/coderbox
+[circleci-coderbox-svg]: https://circleci.com/gh/chen-yumin/coderbox.svg?style=svg
