@@ -1,0 +1,57 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+          name: "Install npm dependencies"
+          command: npm install
+      - run:
+          name: "Build"
+          command: npm run build:ssr
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+  test:
+    docker:
+      - image: circleci/node:latest-browsers
+    steps:
+      - checkout
+      - run:
+          name: "Install npm Dependencies"
+          command: npm install
+      - run:
+          name: "Run test"
+          command: npm test -- --watch=false
+  deploy:
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: "Deploy to Google App Engine"
+          command: |
+            echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+            gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+            gcloud --quiet app deploy --no-promote --version $(echo ${CIRCLE_SHA1} | cut -c -7)
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build
+      - test
+      - deploy:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
