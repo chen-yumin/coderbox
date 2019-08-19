@@ -1,33 +1,4 @@
 main {
-  padding: 8px;
-
-  &>mat-card {
-    margin: 16px;
-  }
-
-  .welcome-card {
-    img {
-      object-fit: cover;
-      height: 192px;
-    }
-
-    mat-card-content {
-      p {
-        margin: 0 16px 16px;
-      }
-    }
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    margin: -8px 8px 0;
-
-    &>mat-card {
-      margin: 8px;
-    }
-  }
-
   .epoch-clock-card {
     app-circle-clock {
       width: 160px;
@@ -91,7 +62,5 @@ main {
         }
       }
     }
-
   }
-
 }

@@ -1,23 +1,4 @@
 main {
-  padding: 8px;
-
-  &>mat-card {
-    margin: 16px;
-  }
-
-  .welcome-card {
-    img {
-      object-fit: cover;
-      height: 192px;
-    }
-
-    mat-card-content {
-      p {
-        margin: 0 16px 16px;
-      }
-    }
-  }
-
   .input-card {
     transition: height 2s;
 
@@ -57,24 +38,16 @@ main {
     }
   }
 
-  .output-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-    margin: -8px 8px 8px 8px;
-
-    .hash-output-card {
-      margin: 8px;
+  .output-card {
+    mat-list-item {
+      height: auto;
 
       mat-form-field {
         width: 100%;
-
-        .mat-form-field-flex {
-          align-items: center;
-        }
+        font-size: 14px;
       }
     }
   }
-
 }
 
 @media (min-width: 600px) {

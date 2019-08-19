@@ -1,22 +1,5 @@
 main {
-  padding: 8px;
-
-  mat-card {
-    margin: 16px;
-
-    &#welcome-card {
-      img {
-        object-fit: cover;
-        height: 192px;
-      }
-    }
-
-    mat-card-content {
-      p {
-        margin: 0 16px 16px;
-      }
-    }
-
+  .welcome-card {
     mat-card-actions {
       mat-icon {
         margin-right: 4px;
