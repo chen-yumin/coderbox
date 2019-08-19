@@ -21,7 +21,8 @@
       </mat-nav-list>
       <mat-list class="theme-switcher">
         <mat-list-item>
-          <mat-slide-toggle (change)="toggleTheme($event)">
+          <mat-icon svgIcon="dark-theme"></mat-icon>
+          <mat-slide-toggle labelPosition="before" (change)="toggleTheme($event)">
             Dark Theme
           </mat-slide-toggle>
         </mat-list-item>

@@ -9,17 +9,14 @@ mat-sidenav-container {
       justify-content: flex-start;
       height: 100%;
 
-      mat-nav-list {
-        a[mat-list-item] {
-          mat-icon {
-            margin-right: 16px;
-          }
+      .mat-list-item {
+        mat-icon {
+          margin-right: 16px;
         }
       }
 
-      mat-list.theme-switcher {
+      .theme-switcher {
         margin-top: auto;
-
       }
     }
   }

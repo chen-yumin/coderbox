@@ -12,6 +12,10 @@
           border-bottom: 1px solid mat-color($foreground, divider);
         }
       }
+
+      .theme-switcher {
+        border-top: 1px solid mat-color($foreground, divider);
+      }
     }
 
     mat-sidenav-content {

@@ -60,6 +60,7 @@ const SVG_ICONS = [
   { iconName: "github",           fileName: "github.svg" },
   { iconName: "hash-generator",   fileName: "hash-generator.svg" },
   { iconName: "epoch-converter",  fileName: "epoch-converter.svg" },
+  { iconName: "dark-theme",       fileName: "dark-theme.svg" },
   { iconName: "copy",             fileName: "copy.svg" },
   { iconName: "file",             fileName: "file.svg" },
   { iconName: "time",             fileName: "time.svg" },
