@@ -25,7 +25,8 @@
           <mat-form-field appearance="outline">
             <mat-label>Textual Input</mat-label>
             <textarea matInput id="text-input" #input cdkTextareaAutosize cdkAutosizeMinRows=3 cdkAutosizeMaxRows=10
-              placeholder="Enter Textual Message" type="text" (input)='onInputMessage($event)'></textarea>
+              appAutofocus tabIndex="0" placeholder="Enter Textual Message" type="text"
+              (input)='onInputMessage($event)'></textarea>
             <mat-hint align="end">Length: {{input.value?.length || 0}} characters</mat-hint>
           </mat-form-field>
         </mat-tab>

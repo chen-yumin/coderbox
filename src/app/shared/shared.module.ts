@@ -3,6 +3,7 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
+import { A11yModule } from '@angular/cdk/a11y';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -34,8 +35,10 @@ import { FileDropAreaComponent } from './components/file-drop-area/file-drop-are
 import { CircleClockComponent } from './components/circle-clock/circle-clock.component';
 import { InputCopyButtonComponent } from './components/input-copy-button/input-copy-button.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
+import { AutofocusDirective } from './directives/autofocus/autofocus.directive';
 
 const ANGULAR_MATERIAL_MODULES = [
+  A11yModule,
   MatToolbarModule,
   MatSidenavModule,
   MatListModule,
@@ -79,7 +82,8 @@ const SVG_ICONS = [
     FileDropAreaComponent,
     CircleClockComponent,
     InputCopyButtonComponent,
-    RelativeTimePipe
+    RelativeTimePipe,
+    AutofocusDirective
   ],
   imports: [
     FormsModule,
@@ -97,6 +101,7 @@ const SVG_ICONS = [
     CircleClockComponent,
     InputCopyButtonComponent,
     RelativeTimePipe,
+    AutofocusDirective,
     ...ANGULAR_MATERIAL_MODULES
   ]
 })

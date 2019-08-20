@@ -48,7 +48,7 @@
             <mat-form-field appearance="outline">
               <mat-label>Unix Timestamp</mat-label>
               <mat-icon matPrefix svgIcon="hourglass"></mat-icon>
-              <input matInput type="number" placeholder="Enter Epoch Timestamp" autocomplete="off"
+              <input matInput type="number" placeholder="Enter Epoch Timestamp" autocomplete="off" appAutofocus
                 [formControl]="epochInputCtrl">
               <label matSuffix>{{ isSeconds(epochInputCtrl.value) ? 'seconds' : 'milliseconds' }}</label>
               <mat-hint align="end">{{ epochInputDate.getTime() | relativeTime:(now$ | async)?.getTime() }}</mat-hint>
