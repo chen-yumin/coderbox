@@ -85,10 +85,4 @@ export class EpochConverterPage implements OnInit, OnDestroy {
     }
     return null;
   }
-
-  copyToClipboard(inputElem: HTMLInputElement): void {
-    inputElem.select();
-    document.execCommand("copy");
-  }
-
 }
