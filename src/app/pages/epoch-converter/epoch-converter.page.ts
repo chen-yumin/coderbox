@@ -40,7 +40,9 @@ export class EpochConverterPage implements OnInit, OnDestroy {
         this.epochInputCtrl.markAsTouched();
         if (value === null) return;
         if (this.isSeconds(value)) value *= 1000;
-        this.epochInputDate = new Date(value);
+        const date = new Date(value);
+        if (isNaN(date.getTime())) return;
+        this.epochInputDate = date;
       })
     );
     this.subscriptions.push(
