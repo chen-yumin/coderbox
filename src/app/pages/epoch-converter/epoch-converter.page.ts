@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FormControl, Validators } from '@angular/forms';
-import { Observable, Subscription, timer } from 'rxjs';
+import { Observable, Subscription, timer, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DateValidator } from '../../shared/validators/date.validator';
 
@@ -16,13 +17,21 @@ export class EpochConverterPage implements OnInit, OnDestroy {
   stringInputCtrl: FormControl;
   epochInputDate: Date;
   stringInputDate: Date;
-  now$: Observable<Date> = timer(0, 100).pipe(map(() => new Date()));
+  now$: Observable<Date>;
   private subscriptions: Subscription[] = [];
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     const date = new Date();
     this.epochInputDate = date;
     this.stringInputDate = date;
+
+    if (isPlatformBrowser(this.platformId)) {
+      // timer only runs on a browser, otherwise it blocks server-side rendering process
+      this.now$ = timer(0, 100).pipe(map(() => new Date()));
+    } else {
+      this.now$ = of(date);
+    }
+
     this.millisecondsToggleCtrl = new FormControl();
     this.epochInputCtrl = new FormControl(
       date.getTime(), [
@@ -52,7 +61,7 @@ export class EpochConverterPage implements OnInit, OnDestroy {
         if (isNaN(date.getTime())) return;
         this.stringInputDate = date;
       })
-    )
+    );
   }
 
   ngOnInit() {

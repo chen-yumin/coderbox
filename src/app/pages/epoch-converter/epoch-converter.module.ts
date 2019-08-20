@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 import { EpochConverterPage } from './epoch-converter.page';
 
-
-
 @NgModule({
   declarations: [EpochConverterPage],
   imports: [
