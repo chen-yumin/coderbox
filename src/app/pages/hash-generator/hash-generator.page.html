@@ -78,7 +78,7 @@
         <ng-container *ngFor="let hash of hashes">
           <mat-list-item *ngIf="hash.enabled">
             <mat-form-field>
-              <textarea matInput readonly cdkTextareaAutosize placeholder="{{ hash.algo }} Hash Digest"
+              <textarea matInput readonly tabindex="-1" cdkTextareaAutosize placeholder="{{ hash.algo }} Hash Digest"
                 [(ngModel)]="hash.digestRep"></textarea>
               <app-input-copy-button matSuffix></app-input-copy-button>
             </mat-form-field>
