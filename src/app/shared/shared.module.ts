@@ -56,18 +56,19 @@ const ANGULAR_MATERIAL_MODULES = [
   MatIconModule
 ];
 const SVG_ICONS = [
-  { iconName: "coderbox",         fileName: "coderbox.svg" },
-  { iconName: "github",           fileName: "github.svg" },
-  { iconName: "hash-generator",   fileName: "hash-generator.svg" },
-  { iconName: "epoch-converter",  fileName: "epoch-converter.svg" },
-  { iconName: "dark-theme",       fileName: "dark-theme.svg" },
-  { iconName: "copy",             fileName: "copy.svg" },
-  { iconName: "file",             fileName: "file.svg" },
-  { iconName: "time",             fileName: "time.svg" },
-  { iconName: "calendar",         fileName: "calendar.svg" },
-  { iconName: "hourglass",        fileName: "hourglass.svg" },
-  { iconName: "locale-time",      fileName: "locale-time.svg" },
-  { iconName: "iso",              fileName: "iso.svg" }
+  { iconName: "coderbox", fileName: "coderbox.svg" },
+  { iconName: "github", fileName: "github.svg" },
+  { iconName: "hash-generator", fileName: "hash-generator.svg" },
+  { iconName: "epoch-converter", fileName: "epoch-converter.svg" },
+  { iconName: "unicode-converter", fileName: "unicode-converter.svg" },
+  { iconName: "dark-theme", fileName: "dark-theme.svg" },
+  { iconName: "copy", fileName: "copy.svg" },
+  { iconName: "file", fileName: "file.svg" },
+  { iconName: "time", fileName: "time.svg" },
+  { iconName: "calendar", fileName: "calendar.svg" },
+  { iconName: "hourglass", fileName: "hourglass.svg" },
+  { iconName: "locale-time", fileName: "locale-time.svg" },
+  { iconName: "iso", fileName: "iso.svg" }
 ];
 
 @NgModule({

@@ -43,6 +43,19 @@ const routes: Routes = [
     }
   },
   {
+    path: 'unicode-converter',
+    loadChildren: './pages/unicode-converter/unicode-converter.module#UnicodeConverterModule',
+    data: {
+      title: 'Unicode Converter',
+      meta: [
+        {
+          name: 'description',
+          content: 'Text processing tool to encode your text and convert it to UTF-8, UTF-16 and UTF-32 and get their various representation formats.'
+        }
+      ]
+    }
+  },
+  {
     path: '**',
     redirectTo: ''
   }
