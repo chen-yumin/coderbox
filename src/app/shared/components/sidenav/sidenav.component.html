@@ -26,7 +26,8 @@
       <mat-list class="theme-switcher">
         <mat-list-item>
           <mat-icon svgIcon="dark-theme"></mat-icon>
-          <mat-slide-toggle labelPosition="before" (change)="toggleTheme($event)">
+          <mat-slide-toggle #themeToggle labelPosition="before" [(ngModel)]="isDarkTheme"
+            (change)="toggleTheme($event)">
             Dark Theme
           </mat-slide-toggle>
         </mat-list-item>

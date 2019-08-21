@@ -1,10 +1,9 @@
-import { Component, Renderer2, OnInit, AfterViewInit, ViewChild, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { SidenavService } from './sidenav.service';
 import { BreakpointService } from '../../services/breakpoint/breakpoint.service';
+import { ThemeService } from '../../services/theme/theme.service';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { OverlayContainer } from '@angular/cdk/overlay';
+import { MatSlideToggle, MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,21 +11,25 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit, AfterViewInit {
-
+  isDarkTheme: boolean;
   @ViewChild('sidenav', { static: false }) public sidenav: MatSidenav;
-  private _theme: string;
+  @ViewChild('themeToggle', { static: false }) public themeToggle: MatSlideToggle;
 
   constructor(
     public sidenavService: SidenavService,
     public bp: BreakpointService,
-    private _overlayContainer: OverlayContainer,
-    private _renderer: Renderer2,
-    @Inject(DOCUMENT) private _document: Document
+    private themeService: ThemeService
   ) {
+    this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
-  ngOnInit(): void {
-    this.setTheme('light-theme');
+  ngOnInit() {
+    this.themeService.themeMatcher.addListener((event: MediaQueryListEvent) => {
+      if (this.isDarkTheme != event.matches) {
+        this.themeToggle.toggle();
+        this.themeToggle.focus();
+      }
+    });
   }
 
   ngAfterViewInit(): void {
@@ -34,17 +37,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   }
 
   toggleTheme(event: MatSlideToggleChange): void {
-    this.setTheme(event.checked ? 'dark-theme' : 'light-theme');
-  }
-
-  setTheme(theme: string) {
-    if (this._theme) {
-      this._renderer.removeClass(this._document.body, this._theme);
-      this._renderer.removeClass(this._overlayContainer.getContainerElement(), this._theme);
-    }
-    this._theme = theme;
-    this._renderer.addClass(this._document.body, theme);
-    this._renderer.addClass(this._overlayContainer.getContainerElement(), theme);
+    this.themeService.isDarkTheme = event.checked;
   }
 
 }

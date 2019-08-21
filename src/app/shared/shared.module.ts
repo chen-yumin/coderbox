@@ -29,6 +29,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SidenavService } from './components/sidenav/sidenav.service';
 import { BreakpointService } from './services/breakpoint/breakpoint.service';
+import { ThemeService } from './services/theme/theme.service';
 import { FileDropAreaComponent } from './components/file-drop-area/file-drop-area.component';
 import { CircleClockComponent } from './components/circle-clock/circle-clock.component';
 import { InputCopyButtonComponent } from './components/input-copy-button/input-copy-button.component';
@@ -81,6 +82,8 @@ const SVG_ICONS = [
     RelativeTimePipe
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     RouterModule,
     ...ANGULAR_MATERIAL_MODULES
@@ -124,7 +127,8 @@ export class SharedModule {
       providers: [
         { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
         SidenavService,
-        BreakpointService
+        BreakpointService,
+        ThemeService
       ]
     };
   }
