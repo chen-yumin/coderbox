@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
   providedIn: 'root'
 })
 export class ThemeService {
-  private darkTheme: boolean;
+  private isdarkTheme: boolean;
   private renderer: Renderer2;
   public themeMatcher: MediaQueryList;
 
@@ -19,32 +19,36 @@ export class ThemeService {
     @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.renderer = rendererFactory.createRenderer(null, null);
+    this.renderer = this.rendererFactory.createRenderer(null, null);
     this.themeMatcher = this.mediaMatcher.matchMedia('(prefers-color-scheme: dark)');
     if (isPlatformBrowser(this.platformId)) {
       // Only set initial dark theme on browser
-      // On SSR, this is always false, thus adding `light-theme` on body tag
+      // On SSR, this is always false, thus always adding `light-theme` and
       // causing the initial view to flash from light to dark
-      this.isDarkTheme = this.themeMatcher.matches;
+      this.darkTheme = this.themeMatcher.matches;
     }
     this.themeMatcher.addListener((event: MediaQueryListEvent) => {
-      this.isDarkTheme = event.matches;
+      this.darkTheme = event.matches;
     });
   }
 
-  get isDarkTheme(): boolean {
-    return this.darkTheme;
+  get darkTheme(): boolean {
+    return this.isdarkTheme;
   }
 
-  set isDarkTheme(darkTheme: boolean) {
-    if (this.darkTheme) {
-      if (this.darkTheme === darkTheme) return;
-      this.renderer.removeClass(this.document.body, this.getThemeName(this.darkTheme));
-      this.renderer.removeClass(this.overlayContainer.getContainerElement(), this.getThemeName(this.darkTheme));
-    }
-    this.darkTheme = darkTheme;
+  set darkTheme(darkTheme: boolean) {
+    this.cleanThemes();
+    this.isdarkTheme = darkTheme;
     this.renderer.addClass(this.document.body, this.getThemeName(darkTheme));
-    this.renderer.addClass(this.overlayContainer.getContainerElement(), this.getThemeName(darkTheme));
+    this.renderer.addClass(this.overlayContainer.getContainerElement(),
+      this.getThemeName(darkTheme));
+  }
+
+  cleanThemes(): void {
+    this.renderer.removeClass(this.document.body, 'light-theme');
+    this.renderer.removeClass(this.document.body, 'dark-theme');
+    this.renderer.removeClass(this.overlayContainer.getContainerElement(), 'light-theme');
+    this.renderer.removeClass(this.overlayContainer.getContainerElement(), 'dark-theme');
   }
 
   getThemeName(darkTheme: boolean) {

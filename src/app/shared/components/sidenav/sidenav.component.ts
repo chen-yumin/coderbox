@@ -20,7 +20,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
     public bp: BreakpointService,
     private themeService: ThemeService
   ) {
-    this.isDarkTheme = this.themeService.isDarkTheme;
+    this.isDarkTheme = this.themeService.darkTheme;
   }
 
   ngOnInit() {
@@ -37,7 +37,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   }
 
   toggleTheme(event: MatSlideToggleChange): void {
-    this.themeService.isDarkTheme = event.checked;
+    this.themeService.darkTheme = event.checked;
   }
 
 }
