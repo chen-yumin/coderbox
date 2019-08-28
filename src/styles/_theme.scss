@@ -49,3 +49,22 @@ $coderbox-dark-theme:  mat-dark-theme(
   @include angular-material-theme($coderbox-dark-theme);
   @include coderbox-app-theme($coderbox-dark-theme);
 }
+
+body {
+  @include angular-material-theme($coderbox-light-theme);
+  @include coderbox-app-theme($coderbox-light-theme);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    @include angular-material-theme($coderbox-light-theme);
+    @include coderbox-app-theme($coderbox-light-theme);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @include angular-material-theme($coderbox-dark-theme);
+    @include coderbox-app-theme($coderbox-dark-theme);
+  }
+}
