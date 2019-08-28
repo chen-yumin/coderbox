@@ -162,7 +162,7 @@
                 matInput
                 cdkTextareaAutosize
                 placeholder="Unix Timestamp"
-                [value]="stringInputDate.getTime()"
+                [value]="stringInputDate.getTime().toString()"
               ></textarea>
               <app-input-copy-button matSuffix></app-input-copy-button>
             </mat-form-field>
