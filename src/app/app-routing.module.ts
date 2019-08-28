@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './pages/home/home.module#HomeModule',
+    loadChildren: () => import('./pages/home/home.module').then(mod => mod.HomeModule),
     pathMatch: 'full',
     data: {
       meta: [
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'hash-generator',
-    loadChildren: './pages/hash-generator/hash-generator.module#HashGeneratorModule',
+    loadChildren: () => import('./pages/hash-generator/hash-generator.module').then(mod => mod.HashGeneratorModule),
     data: {
       title: 'Hash Generator',
       meta: [
@@ -31,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'epoch-converter',
-    loadChildren: './pages/epoch-converter/epoch-converter.module#EpochConverterModule',
+    loadChildren: () => import('./pages/epoch-converter/epoch-converter.module').then(mod => mod.EpochConverterModule),
     data: {
       title: 'Epoch Time Converter',
       meta: [
@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'unicode-converter',
-    loadChildren: './pages/unicode-converter/unicode-converter.module#UnicodeConverterModule',
+    loadChildren: () => import('./pages/unicode-converter/unicode-converter.module').then(mod => mod.UnicodeConverterModule),
     data: {
       title: 'Unicode Converter',
       meta: [
