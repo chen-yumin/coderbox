@@ -1,11 +1,10 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
-@import './app/shared/components/navbar/navbar.theme';
-@import './app/shared/components/sidenav/sidenav.theme';
-@import './app/shared/components/file-drop-area/file-drop-area.theme';
-@import './app/shared/components/circle-clock/circle-clock.theme';
-@import './app/pages/epoch-converter/epoch-converter.theme';
-
+@import "./app/shared/components/navbar/navbar.theme";
+@import "./app/shared/components/sidenav/sidenav.theme";
+@import "./app/shared/components/file-drop-area/file-drop-area.theme";
+@import "./app/shared/components/circle-clock/circle-clock.theme";
+@import "./app/pages/epoch-converter/epoch-converter.theme";
 
 @mixin coderbox-app-theme($theme) {
   $primary: map-get($theme, primary);
@@ -28,14 +27,14 @@
 @include mat-core();
 
 $coderbox-app-primary: mat-palette($mat-cyan);
-$coderbox-app-accent:  mat-palette($mat-teal);
-$coderbox-app-warn:    mat-palette($mat-red);
+$coderbox-app-accent: mat-palette($mat-teal);
+$coderbox-app-warn: mat-palette($mat-red);
 $coderbox-light-theme: mat-light-theme(
   $coderbox-app-primary,
   $coderbox-app-accent,
   $coderbox-app-warn
 );
-$coderbox-dark-theme:  mat-dark-theme(
+$coderbox-dark-theme: mat-dark-theme(
   $coderbox-app-primary,
   $coderbox-app-accent,
   $coderbox-app-warn

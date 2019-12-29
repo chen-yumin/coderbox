@@ -1,18 +1,25 @@
 <main id="epoch-converter">
   <mat-card class="welcome-card">
-    <img mat-card-image src="assets/epoch-converter/welcome.svg" width="350" height="140">
+    <img
+      mat-card-image
+      src="assets/epoch-converter/welcome.svg"
+      width="350"
+      height="140"
+    />
     <mat-card-header>
       <mat-card-title>Epoch Time Converter</mat-card-title>
       <mat-card-subtitle>Convert Unix Timestamps</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
-        The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since
-        January 1, 1970 (midnight UTC/GMT), not counting leap seconds.
+        The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the
+        number of seconds that have elapsed since January 1, 1970 (midnight
+        UTC/GMT), not counting leap seconds.
       </p>
       <p>
-        This Epoch Converter tool helps you to conveniently convert between epoch timestamp seconds and human readable
-        time. Type in the timestamp on the cards and the corresponding time will be converted.
+        This Epoch Converter tool helps you to conveniently convert between
+        epoch timestamp seconds and human readable time. Type in the timestamp
+        on the cards and the corresponding time will be converted.
       </p>
     </mat-card-content>
   </mat-card>
@@ -24,8 +31,10 @@
         <mat-card-subtitle>{{ now.toTimeString() }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <app-circle-clock [timestamp]="now.getTime()"
-          [unit]="millisecondsToggleCtrl.value ? 'milliseconds' : 'seconds'">
+        <app-circle-clock
+          [timestamp]="now.getTime()"
+          [unit]="millisecondsToggleCtrl.value ? 'milliseconds' : 'seconds'"
+        >
         </app-circle-clock>
         <section class="clock-toggle-section">
           <label>Seconds</label>
@@ -48,10 +57,22 @@
             <mat-form-field appearance="outline">
               <mat-label>Unix Timestamp</mat-label>
               <mat-icon matPrefix svgIcon="hourglass"></mat-icon>
-              <input matInput type="number" placeholder="Enter Epoch Timestamp" autocomplete="off" appAutofocus
-                [formControl]="epochInputCtrl">
-              <label matSuffix>{{ isSeconds(epochInputCtrl.value) ? 'seconds' : 'milliseconds' }}</label>
-              <mat-hint align="end">{{ epochInputDate.getTime() | relativeTime:(now$ | async)?.getTime() }}</mat-hint>
+              <input
+                matInput
+                type="number"
+                placeholder="Enter Epoch Timestamp"
+                autocomplete="off"
+                appAutofocus
+                [formControl]="epochInputCtrl"
+              />
+              <label matSuffix
+                >{{ isSeconds(epochInputCtrl.value) ? 'seconds' : 'milliseconds'
+                }}</label
+              >
+              <mat-hint align="end"
+                >{{ epochInputDate.getTime() | relativeTime:(now$ |
+                async)?.getTime() }}</mat-hint
+              >
               <mat-error>{{ getErrorMessage(epochInputCtrl) }}</mat-error>
             </mat-form-field>
           </mat-list-item>
@@ -59,24 +80,48 @@
           <mat-list-item>
             <mat-form-field>
               <mat-icon matPrefix svgIcon="time"></mat-icon>
-              <textarea matInput readonly tabindex="-1" type="text" matInput cdkTextareaAutosize
-                placeholder="Datetime String" [value]="epochInputDate.toString()"></textarea>
+              <textarea
+                matInput
+                readonly
+                tabindex="-1"
+                type="text"
+                matInput
+                cdkTextareaAutosize
+                placeholder="Datetime String"
+                [value]="epochInputDate.toString()"
+              ></textarea>
               <app-input-copy-button matSuffix></app-input-copy-button>
             </mat-form-field>
           </mat-list-item>
           <mat-list-item>
             <mat-form-field>
               <mat-icon matPrefix svgIcon="locale-time"></mat-icon>
-              <textarea matInput readonly tabindex="-1" type="text" matInput cdkTextareaAutosize
-                placeholder="Locale Datetime String" [value]="epochInputDate.toLocaleString()"></textarea>
+              <textarea
+                matInput
+                readonly
+                tabindex="-1"
+                type="text"
+                matInput
+                cdkTextareaAutosize
+                placeholder="Locale Datetime String"
+                [value]="epochInputDate.toLocaleString()"
+              ></textarea>
               <app-input-copy-button matSuffix></app-input-copy-button>
             </mat-form-field>
           </mat-list-item>
           <mat-list-item>
             <mat-form-field>
               <mat-icon matPrefix svgIcon="iso"></mat-icon>
-              <textarea matInput readonly tabindex="-1" type="text" matInput cdkTextareaAutosize
-                placeholder="ISO 8601 Time Format" [value]="epochInputDate.toISOString()"></textarea>
+              <textarea
+                matInput
+                readonly
+                tabindex="-1"
+                type="text"
+                matInput
+                cdkTextareaAutosize
+                placeholder="ISO 8601 Time Format"
+                [value]="epochInputDate.toISOString()"
+              ></textarea>
               <app-input-copy-button matSuffix></app-input-copy-button>
             </mat-form-field>
           </mat-list-item>
@@ -94,8 +139,13 @@
             <mat-form-field appearance="outline">
               <mat-label>Datetime String</mat-label>
               <mat-icon matPrefix svgIcon="time"></mat-icon>
-              <input matInput type="text" placeholder="Enter a Datetime String" [formControl]="stringInputCtrl"
-                autocomplete="off">
+              <input
+                matInput
+                type="text"
+                placeholder="Enter a Datetime String"
+                [formControl]="stringInputCtrl"
+                autocomplete="off"
+              />
               <mat-hint align="end">Any time format is supported</mat-hint>
               <mat-error>{{ getErrorMessage(stringInputCtrl) }}</mat-error>
             </mat-form-field>
@@ -104,8 +154,16 @@
           <mat-list-item>
             <mat-form-field>
               <mat-icon matPrefix svgIcon="hourglass"></mat-icon>
-              <textarea matInput readonly tabindex="-1" type="text" matInput cdkTextareaAutosize
-                placeholder="Unix Timestamp" [value]="stringInputDate.getTime()"></textarea>
+              <textarea
+                matInput
+                readonly
+                tabindex="-1"
+                type="text"
+                matInput
+                cdkTextareaAutosize
+                placeholder="Unix Timestamp"
+                [value]="stringInputDate.getTime()"
+              ></textarea>
               <app-input-copy-button matSuffix></app-input-copy-button>
             </mat-form-field>
           </mat-list-item>

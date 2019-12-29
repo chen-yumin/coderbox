@@ -5,12 +5,7 @@ import { FocusMonitor } from '@angular/cdk/a11y';
   selector: '[appAutofocus]'
 })
 export class AutofocusDirective implements AfterViewInit {
-
-  constructor(
-    private el: ElementRef,
-    private focusMonitor: FocusMonitor
-  ) {
-  }
+  constructor(private el: ElementRef, private focusMonitor: FocusMonitor) {}
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -19,5 +14,4 @@ export class AutofocusDirective implements AfterViewInit {
       });
     }, 0);
   }
-
 }

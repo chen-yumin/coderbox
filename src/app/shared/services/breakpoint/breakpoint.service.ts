@@ -11,14 +11,13 @@ export class BreakpointService {
   private small$: Observable<boolean>;
 
   constructor(breakpointObserver: BreakpointObserver) {
-    this.xsmall$ = breakpointObserver.observe([
-      Breakpoints.XSmall
-    ]).pipe(map(state => state.matches));
+    this.xsmall$ = breakpointObserver
+      .observe([Breakpoints.XSmall])
+      .pipe(map(state => state.matches));
 
-    this.small$ = breakpointObserver.observe([
-      Breakpoints.XSmall,
-      Breakpoints.Small
-    ]).pipe(map(state => state.matches));
+    this.small$ = breakpointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small])
+      .pipe(map(state => state.matches));
   }
 
   public get isXSmall(): Observable<boolean> {

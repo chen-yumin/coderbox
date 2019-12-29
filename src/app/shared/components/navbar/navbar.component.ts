@@ -7,10 +7,7 @@ import { SidenavService } from '../sidenav/sidenav.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  constructor(public sidenavService: SidenavService) {}
 
-  constructor(public sidenavService: SidenavService) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

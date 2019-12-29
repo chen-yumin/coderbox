@@ -14,18 +14,24 @@ describe('HashGeneratorPage', () => {
     digest: null,
     digestRep: ''
   };
-  const TEST_CODERBOX_STR: string = "CoderBox";
-  const TEST_CODERBOX_U8A: Uint8Array =
-    new Uint8Array([67, 111, 100, 101, 114, 66, 111, 120]);
+  const TEST_CODERBOX_STR: string = 'CoderBox';
+  const TEST_CODERBOX_U8A: Uint8Array = new Uint8Array([
+    67,
+    111,
+    100,
+    101,
+    114,
+    66,
+    111,
+    120
+  ]);
   const TEST_CODERBOX_SHA256: string =
-    "75D878F164AE4F748B9F670F0B32F8FE2660D533633B0EE529E45739DE8D9D20";
+    '75D878F164AE4F748B9F670F0B32F8FE2660D533633B0EE529E45739DE8D9D20';
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HashGeneratorPage],
-      imports: [
-        MatSnackBarModule
-      ],
+      imports: [MatSnackBarModule],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
@@ -66,8 +72,9 @@ describe('HashGeneratorPage', () => {
     textInput.nativeElement.value = TEST_CODERBOX_STR;
     textInput.nativeElement.dispatchEvent(new Event('input'));
     expect(component.onInputMessage).toHaveBeenCalledTimes(1);
-    expect(component.calculateHash).toHaveBeenCalledTimes(component.hashes.length);
+    expect(component.calculateHash).toHaveBeenCalledTimes(
+      component.hashes.length
+    );
     expect(component.inputSource).toEqual(TEST_CODERBOX_U8A);
   });
-
 });

@@ -8,17 +8,18 @@ import { Component, Input, ElementRef, AfterViewInit } from '@angular/core';
 export class InputCopyButtonComponent implements AfterViewInit {
   @Input('inputElement') inputElement: HTMLInputElement;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
     if (!this.inputElement) {
-      this.inputElement = this.el.nativeElement.parentElement.parentElement
-        .querySelector('.mat-input-element');
+      this.inputElement = this.el.nativeElement.parentElement.parentElement.querySelector(
+        '.mat-input-element'
+      );
     }
   }
 
   copyToClipboard(): void {
     this.inputElement.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
   }
 }

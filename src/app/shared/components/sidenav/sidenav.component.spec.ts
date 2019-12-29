@@ -13,11 +13,7 @@ describe('SidenavComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SidenavComponent],
-      imports: [
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatSidenavModule
-      ],
+      imports: [AppRoutingModule, BrowserAnimationsModule, MatSidenavModule],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));

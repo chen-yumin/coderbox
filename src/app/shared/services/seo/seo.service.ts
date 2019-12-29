@@ -14,22 +14,23 @@ export class SEOService {
     private _meta: Meta,
     private _router: Router,
     private _activatedRoute: ActivatedRoute
-  ) { }
+  ) {}
 
   setupMetaUpdate() {
     this._router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
+        filter(event => event instanceof NavigationEnd),
         map(() => this._activatedRoute),
-        map((route) => {
+        map(route => {
           while (route.firstChild) {
             route = route.firstChild;
           }
           return route;
         }),
-        filter((route) => route.outlet === 'primary'),
-        mergeMap((route) => route.data)
-      ).subscribe((data) => {
+        filter(route => route.outlet === 'primary'),
+        mergeMap(route => route.data)
+      )
+      .subscribe(data => {
         if (data.title) {
           this._title.setTitle(`${data.title} - ${this.siteName}`);
         } else {

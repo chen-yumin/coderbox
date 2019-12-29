@@ -8,9 +8,8 @@ describe('CircleClockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CircleClockComponent ]
-    })
-    .compileComponents();
+      declarations: [CircleClockComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

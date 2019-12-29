@@ -17,18 +17,10 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        NavbarComponent
-      ],
-      imports: [
-        MatToolbarModule
-      ],
-      providers: [
-        SidenavService
-      ],
-      schemas: [
-        NO_ERRORS_SCHEMA
-      ]
+      declarations: [NavbarComponent],
+      imports: [MatToolbarModule],
+      providers: [SidenavService],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -49,7 +41,7 @@ describe('NavbarComponent', () => {
 
   it('should toggle sidenav on clicking menu button', () => {
     expect(sidenavMock.toggle).not.toHaveBeenCalled();
-    const menuBtn = fixture.debugElement.query(By.css('.menu-button'))
+    const menuBtn = fixture.debugElement.query(By.css('.menu-button'));
     menuBtn.nativeElement.dispatchEvent(new Event('click'));
     fixture.detectChanges();
     expect(sidenavMock.toggle).toHaveBeenCalledTimes(1);

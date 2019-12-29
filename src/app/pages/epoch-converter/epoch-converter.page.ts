@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  PLATFORM_ID,
+  Inject
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable, Subscription, timer, of } from 'rxjs';
@@ -33,17 +39,16 @@ export class EpochConverterPage implements OnInit, OnDestroy {
     }
 
     this.millisecondsToggleCtrl = new FormControl();
-    this.epochInputCtrl = new FormControl(
-      date.getTime(), [
-        Validators.required,
-        Validators.min(-8640000000000000),
-        Validators.max(8640000000000000),
-        Validators.pattern(/^-?[0-9]+$/)
-      ]);
+    this.epochInputCtrl = new FormControl(date.getTime(), [
+      Validators.required,
+      Validators.min(-8640000000000000),
+      Validators.max(8640000000000000),
+      Validators.pattern(/^-?[0-9]+$/)
+    ]);
     this.stringInputCtrl = new FormControl(
-      date.toLocaleString(undefined, { timeZoneName: 'short' }), [
-        DateValidator
-      ]);
+      date.toLocaleString(undefined, { timeZoneName: 'short' }),
+      [DateValidator]
+    );
     this.subscriptions.push(
       this.epochInputCtrl.valueChanges.subscribe((value: number) => {
         this.epochInputCtrl.markAsTouched();
@@ -55,7 +60,7 @@ export class EpochConverterPage implements OnInit, OnDestroy {
       })
     );
     this.subscriptions.push(
-      this.stringInputCtrl.valueChanges.subscribe((value) => {
+      this.stringInputCtrl.valueChanges.subscribe(value => {
         this.stringInputCtrl.markAsTouched();
         const date = new Date(value);
         if (isNaN(date.getTime())) return;
@@ -64,11 +69,10 @@ export class EpochConverterPage implements OnInit, OnDestroy {
     );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnDestroy() {
-    this.subscriptions.forEach((sub) => {
+    this.subscriptions.forEach(sub => {
       sub.unsubscribe();
     });
   }

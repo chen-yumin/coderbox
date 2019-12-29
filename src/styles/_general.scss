@@ -23,7 +23,6 @@ main {
   }
 }
 
-
 @media (min-width: 600px) {
   main {
     padding: 0;
@@ -62,20 +61,19 @@ main {
   }
 }
 
-
 // Remove scrollbar from readonly auto-sized mat-input
 textarea[matInput][readonly][cdkTextareaAutosize] {
   overflow: hidden;
 }
 
 // Hide native stepper arrow controls on input[type=number]
-input[type=number] {
+input[type="number"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }

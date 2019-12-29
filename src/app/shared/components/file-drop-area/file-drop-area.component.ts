@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter, HostBinding, HostListener } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  HostBinding,
+  HostListener
+} from '@angular/core';
 
 @Component({
   selector: 'app-file-drop-area',
@@ -6,11 +12,10 @@ import { Component, Output, EventEmitter, HostBinding, HostListener } from '@ang
   styleUrls: ['./file-drop-area.component.scss']
 })
 export class FileDropAreaComponent {
-
   @Output() onFile = new EventEmitter<any>();
   @HostBinding('class.dragover') dragover: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
   @HostListener('dragover', ['$event']) onDragOver(event: DragEvent) {
     event.preventDefault();
@@ -29,9 +34,8 @@ export class FileDropAreaComponent {
     event.stopPropagation();
     const files = event.dataTransfer.files;
     if (files.length > 0) {
-      this.onFile.emit(files)
+      this.onFile.emit(files);
     }
     this.dragover = false;
   }
-
 }

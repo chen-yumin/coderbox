@@ -8,9 +8,8 @@ describe('FileDropAreaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FileDropAreaComponent ]
-    })
-    .compileComponents();
+      declarations: [FileDropAreaComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

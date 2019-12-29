@@ -3,7 +3,10 @@ import { SidenavService } from './sidenav.service';
 import { BreakpointService } from '../../services/breakpoint/breakpoint.service';
 import { ThemeService } from '../../services/theme/theme.service';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MatSlideToggle, MatSlideToggleChange } from '@angular/material/slide-toggle';
+import {
+  MatSlideToggle,
+  MatSlideToggleChange
+} from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-sidenav',
@@ -13,7 +16,8 @@ import { MatSlideToggle, MatSlideToggleChange } from '@angular/material/slide-to
 export class SidenavComponent implements OnInit, AfterViewInit {
   isDarkTheme: boolean;
   @ViewChild('sidenav', { static: false }) public sidenav: MatSidenav;
-  @ViewChild('themeToggle', { static: false }) public themeToggle: MatSlideToggle;
+  @ViewChild('themeToggle', { static: false })
+  public themeToggle: MatSlideToggle;
 
   constructor(
     public sidenavService: SidenavService,
@@ -39,5 +43,4 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   toggleTheme(event: MatSlideToggleChange): void {
     this.themeService.darkTheme = event.checked;
   }
-
 }

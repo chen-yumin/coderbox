@@ -10,10 +10,7 @@ describe('EpochConverterPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        EpochConverterPage,
-        RelativeTimePipe
-      ],
+      declarations: [EpochConverterPage, RelativeTimePipe],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));

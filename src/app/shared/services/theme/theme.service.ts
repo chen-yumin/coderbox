@@ -1,4 +1,10 @@
-import { Injectable, Inject, Renderer2, RendererFactory2, PLATFORM_ID } from '@angular/core';
+import {
+  Injectable,
+  Inject,
+  Renderer2,
+  RendererFactory2,
+  PLATFORM_ID
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
@@ -20,7 +26,9 @@ export class ThemeService {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.renderer = this.rendererFactory.createRenderer(null, null);
-    this.themeMatcher = this.mediaMatcher.matchMedia('(prefers-color-scheme: dark)');
+    this.themeMatcher = this.mediaMatcher.matchMedia(
+      '(prefers-color-scheme: dark)'
+    );
     if (isPlatformBrowser(this.platformId)) {
       // Only set initial dark theme on browser
       // On SSR, this is always false, thus always adding `light-theme` and
@@ -40,19 +48,26 @@ export class ThemeService {
     this.cleanThemes();
     this.isdarkTheme = darkTheme;
     this.renderer.addClass(this.document.body, this.getThemeName(darkTheme));
-    this.renderer.addClass(this.overlayContainer.getContainerElement(),
-      this.getThemeName(darkTheme));
+    this.renderer.addClass(
+      this.overlayContainer.getContainerElement(),
+      this.getThemeName(darkTheme)
+    );
   }
 
   cleanThemes(): void {
     this.renderer.removeClass(this.document.body, 'light-theme');
     this.renderer.removeClass(this.document.body, 'dark-theme');
-    this.renderer.removeClass(this.overlayContainer.getContainerElement(), 'light-theme');
-    this.renderer.removeClass(this.overlayContainer.getContainerElement(), 'dark-theme');
+    this.renderer.removeClass(
+      this.overlayContainer.getContainerElement(),
+      'light-theme'
+    );
+    this.renderer.removeClass(
+      this.overlayContainer.getContainerElement(),
+      'dark-theme'
+    );
   }
 
   getThemeName(darkTheme: boolean) {
     return darkTheme ? 'dark-theme' : 'light-theme';
   }
-
 }

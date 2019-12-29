@@ -5,9 +5,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { UnicodeConverterPage } from './unicode-converter.page';
 
 @NgModule({
-  declarations: [
-    UnicodeConverterPage
-  ],
+  declarations: [UnicodeConverterPage],
   imports: [
     CommonModule,
     SharedModule,
@@ -19,4 +17,4 @@ import { UnicodeConverterPage } from './unicode-converter.page';
     ])
   ]
 })
-export class UnicodeConverterModule { }
+export class UnicodeConverterModule {}

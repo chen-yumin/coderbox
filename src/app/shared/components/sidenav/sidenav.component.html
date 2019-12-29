@@ -1,8 +1,11 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav class="mat-elevation-z6"
-               [mode]="(bp.isSmall | async) ? 'over' : 'side'"
-               [opened]="!(bp.isSmall | async)"
-               [fixedInViewport]="true">
+  <mat-sidenav
+    #sidenav
+    class="mat-elevation-z6"
+    [mode]="(bp.isSmall | async) ? 'over' : 'side'"
+    [opened]="!(bp.isSmall | async)"
+    [fixedInViewport]="true"
+  >
     <div class="sidenav-wrapper">
       <mat-toolbar></mat-toolbar>
       <mat-nav-list>
@@ -26,8 +29,12 @@
       <mat-list class="theme-switcher">
         <mat-list-item>
           <mat-icon svgIcon="dark-theme"></mat-icon>
-          <mat-slide-toggle #themeToggle labelPosition="before" [(ngModel)]="isDarkTheme"
-            (change)="toggleTheme($event)">
+          <mat-slide-toggle
+            #themeToggle
+            labelPosition="before"
+            [(ngModel)]="isDarkTheme"
+            (change)="toggleTheme($event)"
+          >
             Dark Theme
           </mat-slide-toggle>
         </mat-list-item>

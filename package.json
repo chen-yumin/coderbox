@@ -12,7 +12,8 @@
     "serve:local": "ng serve",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run coderbox:server:production --bundleDependencies all"
+    "build:client-and-server-bundles": "ng build --prod && ng run coderbox:server:production --bundleDependencies all",
+    "prettier": "prettier --write 'src/**/*.{ts,js,json,scss,html}'"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +54,7 @@
     "karma-coverage-istanbul-reporter": "^2.1.0",
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "prettier": "^1.19.1",
     "protractor": "~5.4.2",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",

@@ -5,9 +5,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { HashGeneratorPage } from './hash-generator.page';
 
 @NgModule({
-  declarations: [
-    HashGeneratorPage
-  ],
+  declarations: [HashGeneratorPage],
   imports: [
     CommonModule,
     SharedModule,
@@ -19,4 +17,4 @@ import { HashGeneratorPage } from './hash-generator.page';
     ])
   ]
 })
-export class HashGeneratorModule { }
+export class HashGeneratorModule {}

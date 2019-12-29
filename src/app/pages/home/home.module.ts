@@ -5,9 +5,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { HomePage } from './home.page';
 
 @NgModule({
-  declarations: [
-    HomePage
-  ],
+  declarations: [HomePage],
   imports: [
     CommonModule,
     SharedModule,
@@ -19,4 +17,4 @@ import { HomePage } from './home.page';
     ])
   ]
 })
-export class HomeModule { }
+export class HomeModule {}

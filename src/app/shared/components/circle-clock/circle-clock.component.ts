@@ -1,4 +1,12 @@
-import { Component, Input, ViewChild, HostBinding, HostListener, ElementRef, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  HostBinding,
+  HostListener,
+  ElementRef,
+  AfterViewInit
+} from '@angular/core';
 import { MatRipple } from '@angular/material/core';
 
 @Component({
@@ -33,9 +41,7 @@ export class CircleClockComponent implements AfterViewInit {
     this.copyTextToClipboard(text);
   }
 
-  constructor(
-    private ripple: MatRipple
-  ) { }
+  constructor(private ripple: MatRipple) {}
 
   ngAfterViewInit() {
     this.updateSecondHand();
@@ -51,21 +57,21 @@ export class CircleClockComponent implements AfterViewInit {
 
   updateSecondHand(): void {
     if (!this.secondElem) return;
-    const secondAngle = Math.round(this._timestamp / 1000) % 60 * 6;
-    this.secondElem.nativeElement.style.transform = 'rotateZ(' + secondAngle + 'deg)';
+    const secondAngle = (Math.round(this._timestamp / 1000) % 60) * 6;
+    this.secondElem.nativeElement.style.transform =
+      'rotateZ(' + secondAngle + 'deg)';
   }
 
   copyTextToClipboard(text: string): void {
-    const elem = document.createElement("input");
+    const elem = document.createElement('input');
     document.body.appendChild(elem);
     elem.value = text;
     elem.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     document.body.removeChild(elem);
   }
 
   round(value: number): number {
     return Math.round(value);
   }
-
 }

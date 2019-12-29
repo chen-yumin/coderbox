@@ -21,5 +21,4 @@ export class SidenavService {
   public get sidenav$(): Observable<MatSidenav> {
     return this.sub;
   }
-
 }

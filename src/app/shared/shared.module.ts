@@ -2,7 +2,10 @@ import { NgModule, ModuleWithProviders, Inject } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
+import {
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher
+} from '@angular/material';
 import { A11yModule } from '@angular/cdk/a11y';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -60,19 +63,19 @@ const ANGULAR_MATERIAL_MODULES = [
   MatIconModule
 ];
 const SVG_ICONS = [
-  { iconName: "coderbox", fileName: "coderbox.svg" },
-  { iconName: "github", fileName: "github.svg" },
-  { iconName: "hash-generator", fileName: "hash-generator.svg" },
-  { iconName: "epoch-converter", fileName: "epoch-converter.svg" },
-  { iconName: "unicode-converter", fileName: "unicode-converter.svg" },
-  { iconName: "dark-theme", fileName: "dark-theme.svg" },
-  { iconName: "copy", fileName: "copy.svg" },
-  { iconName: "file", fileName: "file.svg" },
-  { iconName: "time", fileName: "time.svg" },
-  { iconName: "calendar", fileName: "calendar.svg" },
-  { iconName: "hourglass", fileName: "hourglass.svg" },
-  { iconName: "locale-time", fileName: "locale-time.svg" },
-  { iconName: "iso", fileName: "iso.svg" }
+  { iconName: 'coderbox', fileName: 'coderbox.svg' },
+  { iconName: 'github', fileName: 'github.svg' },
+  { iconName: 'hash-generator', fileName: 'hash-generator.svg' },
+  { iconName: 'epoch-converter', fileName: 'epoch-converter.svg' },
+  { iconName: 'unicode-converter', fileName: 'unicode-converter.svg' },
+  { iconName: 'dark-theme', fileName: 'dark-theme.svg' },
+  { iconName: 'copy', fileName: 'copy.svg' },
+  { iconName: 'file', fileName: 'file.svg' },
+  { iconName: 'time', fileName: 'time.svg' },
+  { iconName: 'calendar', fileName: 'calendar.svg' },
+  { iconName: 'hourglass', fileName: 'hourglass.svg' },
+  { iconName: 'locale-time', fileName: 'locale-time.svg' },
+  { iconName: 'iso', fileName: 'iso.svg' }
 ];
 
 @NgModule({
@@ -106,22 +109,21 @@ const SVG_ICONS = [
   ]
 })
 export class SharedModule {
-
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     @Inject(DOCUMENT) private _document: Document
   ) {
     const origin = this._document.location.origin;
-    const registerIcon = ((iconName: string, fileName: string) => {
+    const registerIcon = (iconName: string, fileName: string) => {
       this.matIconRegistry.addSvgIcon(
         iconName,
         this.domSanitizer.bypassSecurityTrustResourceUrl(
           `${origin}/assets/icons/${fileName}`
         )
       );
-    });
-    SVG_ICONS.forEach((icon) => {
+    };
+    SVG_ICONS.forEach(icon => {
       registerIcon(icon.iconName, icon.fileName);
     });
   }

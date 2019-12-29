@@ -23,13 +23,12 @@ export class UnicodeConverterPage {
 
   @ViewChildren('autosize') autosize: QueryList<CdkTextareaAutosize>;
 
-  constructor(private _ngZone: NgZone) { }
+  constructor(private _ngZone: NgZone) {}
 
   triggerResize() {
-    this._ngZone.onStable.pipe(take(1))
-      .subscribe(() => {
-        this.autosize.forEach((item) => item.resizeToFitContent(true));
-      });
+    this._ngZone.onStable.pipe(take(1)).subscribe(() => {
+      this.autosize.forEach(item => item.resizeToFitContent(true));
+    });
   }
 
   onInputMessage(inputEvent): void {
@@ -46,31 +45,55 @@ export class UnicodeConverterPage {
     this.charsLength = charArray.length;
 
     // For UTF-32 Output
-    const utf32 = new Uint32Array(new ArrayBuffer(charArray.length * 4))
-      .map((value, index) => charArray[index].codePointAt(0));
-    this.utf32hex = Array.from(utf32).map(b => b.toString(16).padStart(8, '0').toUpperCase()).join(" ");
-    const utf32hex = Array.from(utf32).map(b => b.toString(16).padStart(2, '0').toUpperCase());
-    this.utf32hexU = "\\u{" + utf32hex.join("}\\u{") + "}";
+    const utf32 = new Uint32Array(
+      new ArrayBuffer(charArray.length * 4)
+    ).map((value, index) => charArray[index].codePointAt(0));
+    this.utf32hex = Array.from(utf32)
+      .map(b =>
+        b
+          .toString(16)
+          .padStart(8, '0')
+          .toUpperCase()
+      )
+      .join(' ');
+    const utf32hex = Array.from(utf32).map(b =>
+      b
+        .toString(16)
+        .padStart(2, '0')
+        .toUpperCase()
+    );
+    this.utf32hexU = '\\u{' + utf32hex.join('}\\u{') + '}';
     this.utf32dec = utf32.toString();
 
     // For UTF-16 Output
-    const utf16 = new Uint16Array(new ArrayBuffer(str.length * 2))
-      .map((value, index) => str.charCodeAt(index));
-    const utf16hex = Array.from(utf16).map(b => b.toString(16).padStart(4, '0').toUpperCase());
-    this.utf16hex = utf16hex.join(" ");
-    this.utf16hexU = "\\u" + utf16hex.join("\\u");
+    const utf16 = new Uint16Array(
+      new ArrayBuffer(str.length * 2)
+    ).map((value, index) => str.charCodeAt(index));
+    const utf16hex = Array.from(utf16).map(b =>
+      b
+        .toString(16)
+        .padStart(4, '0')
+        .toUpperCase()
+    );
+    this.utf16hex = utf16hex.join(' ');
+    this.utf16hexU = '\\u' + utf16hex.join('\\u');
     this.utf16dec = utf16.toString();
 
     // For UTF-8 Output
     const utf8 = new TextEncoder().encode(str);
-    const utf8hex = Array.from(utf8).map(b => b.toString(16).padStart(2, '0').toUpperCase());
-    this.utf8hex = utf8hex.join(" ");
-    this.utf8hexX = "\\x" + utf8hex.join("\\x");
+    const utf8hex = Array.from(utf8).map(b =>
+      b
+        .toString(16)
+        .padStart(2, '0')
+        .toUpperCase()
+    );
+    this.utf8hex = utf8hex.join(' ');
+    this.utf8hexX = '\\x' + utf8hex.join('\\x');
     this.utf8dec = utf8.toString();
 
     // For URI Encoding Output
     this.uri = encodeURI(str);
-    this.uriFull = "%" + utf8hex.join("%");
+    this.uriFull = '%' + utf8hex.join('%');
 
     // Trigger resize
     this.triggerResize();
@@ -90,5 +113,4 @@ export class UnicodeConverterPage {
     this.uri = '';
     this.uriFull = '';
   }
-
 }

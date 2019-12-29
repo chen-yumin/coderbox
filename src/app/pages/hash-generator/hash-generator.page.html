@@ -1,14 +1,20 @@
 <main>
   <mat-card class="welcome-card">
-    <img mat-card-image src="assets/hash-generator/welcome.svg" width="350" height="140">
+    <img
+      mat-card-image
+      src="assets/hash-generator/welcome.svg"
+      width="350"
+      height="140"
+    />
     <mat-card-header>
       <mat-card-title>Hash Generator</mat-card-title>
       <mat-card-subtitle>Generate Hash Codes</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
-        Hash Generator is a simple tool to create cryptographic hash codes from a custom texual message input or a user
-        selected file. It supports most used common hash algorithms, such as SHA-1, SHA-256, SHA-384, SHA-512.
+        Hash Generator is a simple tool to create cryptographic hash codes from
+        a custom texual message input or a user selected file. It supports most
+        used common hash algorithms, such as SHA-1, SHA-256, SHA-384, SHA-512.
       </p>
     </mat-card-content>
   </mat-card>
@@ -24,10 +30,22 @@
         <mat-tab label="Text">
           <mat-form-field appearance="outline">
             <mat-label>Textual Input</mat-label>
-            <textarea matInput id="text-input" #input cdkTextareaAutosize cdkAutosizeMinRows=3 cdkAutosizeMaxRows=10
-              appAutofocus tabIndex="0" placeholder="Enter Textual Message" type="text"
-              (input)='onInputMessage($event)'></textarea>
-            <mat-hint align="end">Length: {{input.value?.length || 0}} characters</mat-hint>
+            <textarea
+              matInput
+              id="text-input"
+              #input
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="3"
+              cdkAutosizeMaxRows="10"
+              appAutofocus
+              tabindex="0"
+              placeholder="Enter Textual Message"
+              type="text"
+              (input)="onInputMessage($event)"
+            ></textarea>
+            <mat-hint align="end"
+              >Length: {{input.value?.length || 0}} characters</mat-hint
+            >
           </mat-form-field>
         </mat-tab>
 
@@ -53,16 +71,26 @@
         <section>
           <label>Algorithm:</label>
           <div class="flex-wrapper">
-            <mat-checkbox class="config-item" *ngFor="let hash of hashes" [(ngModel)]="hash.enabled"
-              (change)="onConfigAlgoChange($event, hash)">{{ hash.algo }}</mat-checkbox>
+            <mat-checkbox
+              class="config-item"
+              *ngFor="let hash of hashes"
+              [(ngModel)]="hash.enabled"
+              (change)="onConfigAlgoChange($event, hash)"
+              >{{ hash.algo }}</mat-checkbox
+            >
           </div>
         </section>
 
         <section>
           <label>Digest Representation:</label>
           <mat-radio-group class="flex-wrapper" [(ngModel)]="representation">
-            <mat-radio-button class="config-item" *ngFor="let rep of outputReps; let i = index" [value]="i + 1"
-              (change)="onConfigRepChange($event)">{{ rep }}</mat-radio-button>
+            <mat-radio-button
+              class="config-item"
+              *ngFor="let rep of outputReps; let i = index"
+              [value]="i + 1"
+              (change)="onConfigRepChange($event)"
+              >{{ rep }}</mat-radio-button
+            >
           </mat-radio-group>
         </section>
       </mat-expansion-panel>
@@ -72,15 +100,23 @@
   <mat-card class="output-card">
     <mat-card-header>
       <mat-card-title>Output Hashes</mat-card-title>
-      <mat-card-subtitle>Hash digests in {{ outputReps[representation - 1] }} </mat-card-subtitle>
+      <mat-card-subtitle
+        >Hash digests in {{ outputReps[representation - 1] }}
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <mat-list>
         <ng-container *ngFor="let hash of hashes">
           <mat-list-item *ngIf="hash.enabled">
             <mat-form-field>
-              <textarea matInput readonly tabindex="-1" cdkTextareaAutosize placeholder="{{ hash.algo }} Hash Digest"
-                [(ngModel)]="hash.digestRep"></textarea>
+              <textarea
+                matInput
+                readonly
+                tabindex="-1"
+                cdkTextareaAutosize
+                placeholder="{{ hash.algo }} Hash Digest"
+                [(ngModel)]="hash.digestRep"
+              ></textarea>
               <app-input-copy-button matSuffix></app-input-copy-button>
             </mat-form-field>
           </mat-list-item>

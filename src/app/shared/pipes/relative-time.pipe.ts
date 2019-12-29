@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'relativeTime'
 })
 export class RelativeTimePipe implements PipeTransform {
-
   transform(timestamp: number, relativeToTimestamp?: number): string {
     if (!Intl.RelativeTimeFormat) return '';
     if (isNaN(relativeToTimestamp)) {
@@ -36,7 +35,6 @@ export class RelativeTimePipe implements PipeTransform {
       return rtf.format(Math.round(diff / msPerYear), 'year');
     }
   }
-
 }
 
 declare namespace Intl {

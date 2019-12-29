@@ -17,4 +17,4 @@ import { EpochConverterPage } from './epoch-converter.page';
     ])
   ]
 })
-export class EpochConverterModule { }
+export class EpochConverterModule {}
