@@ -1,12 +1,9 @@
-<mat-toolbar
-  class="mat-elevation-z6"
-  *ngIf="sidenavService.sidenav$ | async as sidenav"
->
+<mat-toolbar class="mat-elevation-z6">
   <button
     mat-icon-button
-    class="menu-button"
+    data-test-id="sidenav-toggle-button"
     aria-label="menu"
-    (click)="sidenav.toggle()"
+    (click)="toggleSidenav()"
   >
     <mat-icon>menu</mat-icon>
   </button>
@@ -14,7 +11,7 @@
   <div class="title">
     <a mat-button class="coderbox-button" routerLink="/" aria-label="CoderBox">
       <mat-icon class="coderbox-logo" svgIcon="coderbox"></mat-icon>
-      <span>CoderBox</span>
+      <span data-test-id="app-title">CoderBox</span>
     </a>
   </div>
 

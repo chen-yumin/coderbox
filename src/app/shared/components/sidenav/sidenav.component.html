@@ -2,6 +2,7 @@
   <mat-sidenav
     #sidenav
     class="mat-elevation-z6"
+    data-test-id="app-sidenav"
     [mode]="(bp.isSmall | async) ? 'over' : 'side'"
     [opened]="!(bp.isSmall | async)"
     [fixedInViewport]="true"

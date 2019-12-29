@@ -6,11 +6,23 @@ describe('workspace-project App', () => {
 
   beforeEach(() => {
     page = new AppPage();
+    page.navigateTo();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to coderbox!');
+  it('should display app title text', async () => {
+    const appTitleText = await page.getAppTitleText();
+    expect(appTitleText).toEqual('CoderBox');
+  });
+
+  it('should toggle sidenav when menu button is clicked', async () => {
+    const initialState = await page.getSidenavVisibility();
+    await page.clickSidenavToggleButton();
+    await page.waitUntilSidenavVisibilityChanged(initialState);
+    const toggledState = await page.getSidenavVisibility();
+    expect(toggledState).not.toEqual(initialState);
+    await page.clickSidenavToggleButton();
+    await page.waitUntilSidenavVisibilityChanged(toggledState);
+    expect(await page.getSidenavVisibility()).toEqual(initialState);
   });
 
   afterEach(async () => {

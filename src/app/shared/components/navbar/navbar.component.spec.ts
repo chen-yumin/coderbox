@@ -28,10 +28,9 @@ describe('NavbarComponent', () => {
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     sidenavService = TestBed.get(SidenavService);
-    const sidenav$ = new Subject();
-    spyOnProperty(sidenavService, 'sidenav$', 'get').and.returnValue(sidenav$);
-    fixture.detectChanges();
-    sidenav$.next(sidenavMock);
+    spyOnProperty(sidenavService, 'sidenav', 'get').and.returnValue(
+      sidenavMock
+    );
     fixture.detectChanges();
   });
 
@@ -41,7 +40,9 @@ describe('NavbarComponent', () => {
 
   it('should toggle sidenav on clicking menu button', () => {
     expect(sidenavMock.toggle).not.toHaveBeenCalled();
-    const menuBtn = fixture.debugElement.query(By.css('.menu-button'));
+    const menuBtn = fixture.debugElement.query(
+      By.css('[data-test-id="sidenav-toggle-button"]')
+    );
     menuBtn.nativeElement.dispatchEvent(new Event('click'));
     fixture.detectChanges();
     expect(sidenavMock.toggle).toHaveBeenCalledTimes(1);

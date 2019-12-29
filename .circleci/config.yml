@@ -24,8 +24,11 @@ jobs:
           name: "Install npm Dependencies"
           command: npm install
       - run:
-          name: "Run test"
+          name: "Run unit tests"
           command: npm test -- --watch=false
+      - run:
+          name: "Run e2e tests"
+          command: npm run e2e
   deploy:
     docker:
       - image: google/cloud-sdk:alpine

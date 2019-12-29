@@ -10,4 +10,8 @@ export class NavbarComponent implements OnInit {
   constructor(public sidenavService: SidenavService) {}
 
   ngOnInit() {}
+
+  public toggleSidenav() {
+    this.sidenavService.sidenav.toggle();
+  }
 }
